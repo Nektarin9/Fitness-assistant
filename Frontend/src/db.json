@@ -1,0 +1,80 @@
+{
+  "clients": [
+    {
+      "image": "https://iimg.su/s/08/L5ANipCzyfYd4qbAO4hWxlZ5HvWTmTYxoc5JnITs.png",
+      "name": "agwe",
+      "phone": "235235",
+      "age": "32544",
+      "training_program": {},
+      "id": 1
+    },
+    {
+      "image": "https://iimg.su/s/08/L5ANipCzyfYd4qbAO4hWxlZ5HvWTmTYxoc5JnITs.png",
+      "name": "Владислав999",
+      "phone": "gserg",
+      "age": "44",
+      "id": 16
+    },
+    {
+      "image": "",
+      "name": "DDD",
+      "phone": "8888",
+      "age": "",
+      "training_program": {},
+      "id": 17
+    },
+    {
+      "image": "https://iimg.su/s/08/L5ANipCzyfYd4qbAO4hWxlZ5HvWTmTYxoc5JnITs.png",
+      "name": "Перскик",
+      "phone": "1241241241",
+      "age": "432",
+      "training_program": {},
+      "id": 31
+    },
+    {
+      "image": "",
+      "name": "",
+      "phone": "",
+      "age": "",
+      "training_program": {},
+      "id": 34
+    }
+  ],
+  "exercises": [
+    {
+      "id": 745,
+      "exerciseName": "Поднять руку :)",
+      "category": "Руки"
+    },
+    {
+      "id": 23612,
+      "exerciseName": "Поднять ногу :)",
+      "category": "Ноги"
+    },
+    {
+      "id": 2352,
+      "exerciseName": "Поднять грудь9999999 9999999999999999999999 :)",
+      "category": "Грудь"
+    },
+    {
+      "id": 124,
+      "exerciseName": "Поднять спину :)",
+      "category": "Спина"
+    },
+    {
+      "exerciseName": "Жим штанги лежа",
+      "category": "Грудь",
+      "id": 23616
+    },
+    {
+      "exerciseName": "ee",
+      "category": "Руки",
+      "id": 23618
+    },
+    {
+      "exerciseName": ";bev awega awegaweg awegaeg awegawega aegaeg awegaweg aweg aweg  waegeawg aweg weagwaeg",
+      "category": "Ноги",
+      "id": 23619
+    }
+  ]
+}
