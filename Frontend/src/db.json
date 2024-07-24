@@ -33,11 +33,19 @@
     },
     {
       "image": "",
-      "name": "",
-      "phone": "",
-      "age": "",
+      "name": "eewfw",
+      "phone": "3254325",
+      "age": "443",
       "training_program": {},
-      "id": 34
+      "id": 32
+    },
+    {
+      "image": "eregte",
+      "name": "rewr",
+      "phone": "324324",
+      "age": "23",
+      "training_program": {},
+      "id": 33
     }
   ],
   "exercises": [
@@ -75,6 +83,11 @@
       "exerciseName": ";bev awega awegaweg awegaeg awegawega aegaeg awegaweg aweg aweg  waegeawg aweg weagwaeg",
       "category": "Ноги",
       "id": 23619
+    },
+    {
+      "exerciseName": "Поднять ногу)",
+      "category": "Руки",
+      "id": 23620
     }
   ]
 }
