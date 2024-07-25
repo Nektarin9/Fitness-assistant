@@ -2,11 +2,12 @@
 import { ClientForm } from '../../../../components';
 import { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { actionAddClient, actionMessage, actionUpdateClient } from '../../../../actions';
+import { postClient, updateClient } from '../../../../actions';
 import { useNavigate, useParams } from 'react-router-dom';
 import { selectClients } from '../../../../selectors';
 import { findClient } from '../../../../utils';
 import { useClearMessage } from '../../../../hooks';
+import { message } from '../../../../reducers/app-slice';
 import styled from 'styled-components';
 
 const AdditionContainer = ({ className }: { className?: string }) => {
@@ -24,7 +25,7 @@ const AdditionContainer = ({ className }: { className?: string }) => {
 
 	const handleAdd = () => {
 		dispatch(
-			actionAddClient({
+			postClient({
 				image: photoUrl,
 				name: clientName,
 				phone: clientPhone,
@@ -32,20 +33,21 @@ const AdditionContainer = ({ className }: { className?: string }) => {
 				training_program: {},
 			}),
 		);
-		dispatch(actionMessage('Карточка добавлена'));
+		dispatch(message('Карточка добавлена'));
 		clearMessage(dispatch);
 		navigate('/');
 	};
 	const handleUpdate = () => {
 		dispatch(
-			actionUpdateClient(params.id, {
+			updateClient({
+				id: params.id,
 				image: photoUrl,
 				name: clientName,
 				phone: clientPhone,
 				age: clientAge,
 			}),
 		);
-		dispatch(actionMessage('Карточка изменена'));
+		dispatch(message('Карточка изменена'));
 		clearMessage(dispatch);
 		navigate('/');
 	};

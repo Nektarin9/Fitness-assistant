@@ -10,6 +10,7 @@ export const actionGetExercisesData =
 				type: ACTION_TYPE.GET_EXERCISES_DATA,
 				payload: exercises,
 			});
+			return exercises
 		} catch (error) {
 			console.error(error);
 		}

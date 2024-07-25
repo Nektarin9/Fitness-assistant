@@ -2,8 +2,8 @@ import { useDispatch } from 'react-redux';
 import { Button, Input } from '../../../../components';
 import { Categories, Exercises } from './components';
 import { useState } from 'react';
-import styled from 'styled-components';
 import { actionAddExercise } from '../../../../actions';
+import styled from 'styled-components';
 
 const ExerciseListContainer = ({ className }: { className?: string }) => {
 	const [input, setInput] = useState('');
@@ -13,7 +13,7 @@ const ExerciseListContainer = ({ className }: { className?: string }) => {
 	const dispatch = useDispatch();
 	const addExercise = () => {
 		dispatch(actionAddExercise({ exerciseName: input, category: selectedCategory }));
-		setShowComponent(!showComponent)
+		setShowComponent(!showComponent);
 	};
 	return (
 		<div className={className}>
@@ -38,7 +38,7 @@ const ExerciseListContainer = ({ className }: { className?: string }) => {
 			<Button onClick={addExercise} width="200px" height="40px">
 				Добавить упражнение
 			</Button>
-			<Exercises showComponent={showComponent}/>
+			<Exercises showComponent={showComponent} />
 		</div>
 	);
 };

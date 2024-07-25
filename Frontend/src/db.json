@@ -11,14 +11,14 @@
     {
       "image": "https://iimg.su/s/08/L5ANipCzyfYd4qbAO4hWxlZ5HvWTmTYxoc5JnITs.png",
       "name": "Владислав999",
-      "phone": "gserg",
+      "phone": "gserg9",
       "age": "44",
       "id": 16
     },
     {
       "image": "",
-      "name": "DDD",
-      "phone": "8888",
+      "name": "кукуhawegh",
+      "phone": "22299",
       "age": "",
       "training_program": {},
       "id": 17
@@ -33,7 +33,15 @@
     },
     {
       "image": "",
-      "name": "",
+      "name": "ewfawefawe",
+      "phone": "fefawef",
+      "age": "",
+      "training_program": {},
+      "id": 33
+    },
+    {
+      "image": "",
+      "name": "drtjdrtj",
       "phone": "",
       "age": "",
       "training_program": {},
@@ -65,16 +73,6 @@
       "exerciseName": "Жим штанги лежа",
       "category": "Грудь",
       "id": 23616
-    },
-    {
-      "exerciseName": "ee",
-      "category": "Руки",
-      "id": 23618
-    },
-    {
-      "exerciseName": ";bev awega awegaweg awegaeg awegawega aegaeg awegaweg aweg aweg  waegeawg aweg weagwaeg",
-      "category": "Ноги",
-      "id": 23619
     }
   ]
 }
