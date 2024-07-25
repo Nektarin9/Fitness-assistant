@@ -2,7 +2,7 @@ import { Route, Routes } from 'react-router-dom';
 import { Clients } from '../pages/main/components';
 import { Authorization, Main } from '../pages';
 import { BackButton } from '../components';
-import { Addition, ExerciseList } from '../pages/main/pages';
+import { Addition, ClientInfo, ExerciseList } from '../pages/main/pages';
 
 export const Routing = () => {
 	return (
@@ -13,7 +13,8 @@ export const Routing = () => {
 				<Route index element={<Clients />} />
 				<Route path="addClient" element={<Addition />} />
 				<Route path="cardEditing/:id" element={<Addition />} />
-				<Route path="exerciseList" element={<ExerciseList />} />
+				<Route path="/exerciseList" element={<ExerciseList />} />
+				<Route path="/client/:id" element={<ClientInfo />} />
 			</Route>
 
 			<Route

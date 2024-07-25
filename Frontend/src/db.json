@@ -33,19 +33,35 @@
     },
     {
       "image": "",
-      "name": "ewfawefawe",
-      "phone": "fefawef",
-      "age": "",
-      "training_program": {},
-      "id": 33
-    },
-    {
-      "image": "",
       "name": "drtjdrtj",
       "phone": "",
       "age": "",
       "training_program": {},
+      "id": 32
+    },
+    {
+      "image": "",
+      "name": "huilhuil",
+      "phone": "999",
+      "age": "99",
+      "training_program": {},
       "id": 34
+    },
+    {
+      "image": "https://iimg.su/s/08/L5ANipCzyfYd4qbAO4hWxlZ5HvWTmTYxoc5JnITs.png",
+      "name": "huilhuil889080",
+      "phone": "780780",
+      "age": "",
+      "training_program": {},
+      "id": 35
+    },
+    {
+      "image": "",
+      "name": "",
+      "phone": "",
+      "age": "",
+      "training_program": {},
+      "id": 36
     }
   ],
   "exercises": [
@@ -70,9 +86,9 @@
       "category": "Спина"
     },
     {
-      "exerciseName": "Жим штанги лежа",
-      "category": "Грудь",
-      "id": 23616
+      "exerciseName": "",
+      "category": "Спина",
+      "id": 23617
     }
   ]
 }
