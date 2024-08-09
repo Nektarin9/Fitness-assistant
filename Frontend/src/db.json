@@ -11,14 +11,14 @@
     {
       "image": "https://iimg.su/s/08/L5ANipCzyfYd4qbAO4hWxlZ5HvWTmTYxoc5JnITs.png",
       "name": "Владислав999",
-      "phone": "gserg",
+      "phone": "gserg9",
       "age": "44",
       "id": 16
     },
     {
       "image": "",
-      "name": "DDD",
-      "phone": "8888",
+      "name": "кукуhawegh",
+      "phone": "22299",
       "age": "",
       "training_program": {},
       "id": 17
@@ -33,19 +33,35 @@
     },
     {
       "image": "",
-      "name": "eewfw",
-      "phone": "3254325",
-      "age": "443",
+      "name": "drtjdrtj",
+      "phone": "",
+      "age": "",
       "training_program": {},
       "id": 32
     },
     {
-      "image": "eregte",
-      "name": "rewr",
-      "phone": "324324",
-      "age": "23",
+      "image": "",
+      "name": "huilhuil",
+      "phone": "999",
+      "age": "99",
       "training_program": {},
-      "id": 33
+      "id": 34
+    },
+    {
+      "image": "https://iimg.su/s/08/L5ANipCzyfYd4qbAO4hWxlZ5HvWTmTYxoc5JnITs.png",
+      "name": "huilhuil889080",
+      "phone": "780780",
+      "age": "",
+      "training_program": {},
+      "id": 35
+    },
+    {
+      "image": "",
+      "name": "",
+      "phone": "",
+      "age": "",
+      "training_program": {},
+      "id": 36
     }
   ],
   "exercises": [
@@ -70,24 +86,9 @@
       "category": "Спина"
     },
     {
-      "exerciseName": "Жим штанги лежа",
-      "category": "Грудь",
-      "id": 23616
-    },
-    {
-      "exerciseName": "ee",
-      "category": "Руки",
-      "id": 23618
-    },
-    {
-      "exerciseName": ";bev awega awegaweg awegaeg awegawega aegaeg awegaweg aweg aweg  waegeawg aweg weagwaeg",
-      "category": "Ноги",
-      "id": 23619
-    },
-    {
-      "exerciseName": "Поднять ногу)",
-      "category": "Руки",
-      "id": 23620
+      "exerciseName": "",
+      "category": "Спина",
+      "id": 23617
     }
   ]
 }

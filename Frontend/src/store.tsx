@@ -1,18 +1,9 @@
-import { createStore, combineReducers, applyMiddleware, compose } from 'redux';
-import { thunk } from 'redux-thunk';
-import { appReducer, trainingDataReducer } from './reducers';
+import { configureStore, combineReducers } from '@reduxjs/toolkit';
+import { trainingDataReducer } from './reducers';
+import appSlice from './reducers/app-slice';
 
-const reducers: any = combineReducers({
-	appReducer,
+const rootReducer = combineReducers({
+	appReducer: appSlice,
 	trainingDataReducer,
 });
-console.log(appReducer);
-
-declare global {
-	interface Window {
-		__REDUX_DEVTOOLS_EXTENSION_COMPOSE__?: typeof compose;
-	}
-}
-
-const composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;
-export const store = createStore(reducers, composeEnhancers(applyMiddleware(thunk)));
+export const store = configureStore({ reducer: rootReducer });
