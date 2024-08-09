@@ -4,13 +4,13 @@ import { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { selectExercisesData } from '../../selectors';
 import { ExercisesData } from '../../interface';
-import { actionGetExercisesData } from '../../actions';
+import { fetchExercisesData } from '../../actions';
 
 const SearchWorkoutsContainer = ({ className }: { className?: string }) => {
 	const dispatch = useDispatch();
 
 	useEffect(() => {
-		dispatch(actionGetExercisesData());
+		dispatch(fetchExercisesData());
 	}, [dispatch]);
 
 	const exercisesData = useSelector(selectExercisesData);

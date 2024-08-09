@@ -20,7 +20,7 @@ const ClienstsContainer = ({ className }: { className?: string }) => {
 		<div className={className}>
 			{clients.map(({ id, name, phone, image }) => (
 				<div key={id}>
-					<Link to={`/client/${id}`} className="card">
+					<Link to={`/client/${id}/exercise`} className="card">
 						<div>
 							<img src={image} alt={name} />
 							<p className="p-text">{name}</p>

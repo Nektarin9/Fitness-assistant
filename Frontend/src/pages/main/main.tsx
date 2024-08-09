@@ -1,7 +1,4 @@
 import { BackButton, Header } from '../../components';
-import { useEffect } from 'react';
-import { useDispatch } from 'react-redux';
-import { fetchClients } from '../../actions';
 import { NavLink, Outlet } from 'react-router-dom';
 import styled from 'styled-components';
 
@@ -11,11 +8,6 @@ const MainContainer = ({
 	className?: string;
 	children?: React.ReactNode;
 }) => {
-	const dispatch = useDispatch();
-	useEffect(() => {
-		dispatch(fetchClients());
-	}, [dispatch]);
-
 	return (
 		<>
 			<Header />

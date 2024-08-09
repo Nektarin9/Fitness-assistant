@@ -2,18 +2,25 @@ import { useDispatch } from 'react-redux';
 import { Button, Input } from '../../../../components';
 import { Categories, Exercises } from './components';
 import { useState } from 'react';
-import { actionAddExercise } from '../../../../actions';
+import { addExercisesData } from '../../../../actions';
 import styled from 'styled-components';
+import { message } from '../../../../reducers/app-slice';
+import { useClearMessage } from '../../../../hooks';
+
 
 const ExerciseListContainer = ({ className }: { className?: string }) => {
 	const [input, setInput] = useState('');
 	const [selectedCategory, setSelectedCategory] = useState('Спина');
 	const [showComponent, setShowComponent] = useState(false); // Состояние для управления отображением компонента
-
+	const clearMessage = useClearMessage
 	const dispatch = useDispatch();
+
+
 	const addExercise = () => {
-		dispatch(actionAddExercise({ exerciseName: input, category: selectedCategory }));
+		dispatch(addExercisesData({ exerciseName: input, category: selectedCategory }));
 		setShowComponent(!showComponent);
+		dispatch(message('Упражнение добавлено'));
+		clearMessage(dispatch);
 	};
 	return (
 		<div className={className}>
@@ -39,11 +46,13 @@ const ExerciseListContainer = ({ className }: { className?: string }) => {
 				Добавить упражнение
 			</Button>
 			<Exercises showComponent={showComponent} />
+
 		</div>
 	);
 };
 
 export const ExerciseList = styled(ExerciseListContainer)`
+	position: relative;
 	.conteiner {
 		display: flex;
 		justify-content: center;

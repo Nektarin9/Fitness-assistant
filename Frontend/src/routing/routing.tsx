@@ -1,8 +1,8 @@
 import { Route, Routes } from 'react-router-dom';
 import { Clients } from '../pages/main/components';
 import { Authorization, Main } from '../pages';
-import { BackButton } from '../components';
 import { Addition, ClientInfo, ExerciseList } from '../pages/main/pages';
+import { AddWorkout, ListWorkouts } from '../pages/client-info/pages';
 
 export const Routing = () => {
 	return (
@@ -14,17 +14,13 @@ export const Routing = () => {
 				<Route path="addClient" element={<Addition />} />
 				<Route path="cardEditing/:id" element={<Addition />} />
 				<Route path="/exerciseList" element={<ExerciseList />} />
-				<Route path="/client/:id" element={<ClientInfo />} />
 			</Route>
 
-			<Route
-				path="/client/:id"
-				element={
-					<div>
-						<BackButton />
-					</div>
-				}
-			/>
+			<Route path="/client/:id" element={<ClientInfo />}>
+				<Route index path="/client/:id/exercise" element={<ListWorkouts />} />
+
+				<Route path="/client/:id/add" element={<AddWorkout />} />
+			</Route>
 		</Routes>
 	);
 };

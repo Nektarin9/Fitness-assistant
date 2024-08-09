@@ -18,7 +18,6 @@ export const changeData = (
 				data.splice(index, 1);
 			}
 		});
-		console.log(data);
 	} else if (type === 'ADD' && typeof payload === 'object') {
 		data.push(payload);
 	}

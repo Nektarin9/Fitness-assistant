@@ -5,9 +5,10 @@ import { useDispatch, useSelector } from 'react-redux';
 import { postClient, updateClient } from '../../../../actions';
 import { useNavigate, useParams } from 'react-router-dom';
 import { selectClients } from '../../../../selectors';
-import { findClient } from '../../../../utils';
+import { findClient, generateId } from '../../../../utils';
 import { useClearMessage } from '../../../../hooks';
 import { message } from '../../../../reducers/app-slice';
+import { DEFAULT_URL } from '../../../../constants';
 import styled from 'styled-components';
 
 const AdditionContainer = ({ className }: { className?: string }) => {
@@ -30,7 +31,18 @@ const AdditionContainer = ({ className }: { className?: string }) => {
 				name: clientName,
 				phone: clientPhone,
 				age: clientAge,
-				training_program: {},
+				training_program: [
+					{
+						id: generateId(),
+						table: [
+							{
+								id: generateId(),
+								exercise: '',
+								description: '',
+							},
+						],
+					},
+				],
 			}),
 		);
 		dispatch(message('Карточка добавлена'));
@@ -53,7 +65,7 @@ const AdditionContainer = ({ className }: { className?: string }) => {
 	};
 	useEffect(() => {
 		const { image, name, phone, age } = client;
-		setPhotoUrl(image ? image : '');
+		setPhotoUrl(image ? image : DEFAULT_URL);
 		setClientName(name ? name : '');
 		setClientPhone(phone ? phone : '');
 		setClientAge(age ? age : '');

@@ -22,6 +22,8 @@ export const Button = styled(ButtonContainer)`
 	width: ${({ width = '150px' }) => width};
 	height: ${({ height = '35px' }) => height};
 	background-color: ${({ backgroundColor = '#00a462' }) => backgroundColor};
+	text-align: center;
+	vertical-align: middle;
 	border-radius: 5px;
 	font-size: 18px;
 	font-weight: 500;
