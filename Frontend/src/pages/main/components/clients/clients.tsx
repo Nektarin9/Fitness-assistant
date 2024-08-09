@@ -2,19 +2,19 @@ import { useDispatch, useSelector } from 'react-redux';
 import { Link } from 'react-router-dom';
 import { selectClients } from '../../../../selectors';
 import { useEffect } from 'react';
-import { actionClients } from '../../../../actions';
 import { Button } from '../../../../components';
-import { actionDeleteClient } from '../../../../actions';
+import { deleteClient, fetchClients } from '../../../../actions';
 import styled from 'styled-components';
+
 
 const ClienstsContainer = ({ className }: { className?: string }) => {
 	const dispatch = useDispatch();
 	const clients = useSelector(selectClients);
 	useEffect(() => {
-		dispatch(actionClients());
+		dispatch(fetchClients());
 	}, [dispatch]);
 	const removeCard = (id: number | string | undefined) => {
-		dispatch(actionDeleteClient(id));
+		dispatch(deleteClient(id));
 	};
 	return (
 		<div className={className}>

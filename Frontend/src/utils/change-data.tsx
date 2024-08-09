@@ -4,7 +4,7 @@ export const changeData = (
 	data: Person[],
 	payload: Person | number | string,
 	type: string,
-): Person[] | undefined => {
+): void => {
 	if (type === 'UPDATE' && typeof payload === 'object') {
 		const copyData = [...data];
 		copyData.forEach(({ id }, index) => {
@@ -12,11 +12,14 @@ export const changeData = (
 				copyData[index] = { ...payload };
 			}
 		});
-		return copyData;
 	} else if (type === 'DELETE') {
-		return data.filter((product) => product.id !== payload);
+		data.forEach((product, index) => {
+			if (product.id === payload) {
+				data.splice(index, 1);
+			}
+		});
+		console.log(data);
 	} else if (type === 'ADD' && typeof payload === 'object') {
 		data.push(payload);
-		return data;
 	}
 };
