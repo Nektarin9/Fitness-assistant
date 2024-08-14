@@ -2,11 +2,7 @@ import { Button, Pagination } from '../../../../../../components';
 import { useDispatch, useSelector } from 'react-redux';
 import { selectExercisesData } from '../../../../../../selectors';
 import { useEffect, useState } from 'react';
-import {
-	deleteExercisesData,
-	fetchExercisesData,
-	fetchExercisesDataLastPage,
-} from '../../../../../../actions';
+import { deleteExercisesData, fetchExercisesData } from '../../../../../../actions';
 import { message } from '../../../../../../reducers/app-slice';
 import { useClearMessage } from '../../../../../../hooks';
 import styled from 'styled-components';
@@ -20,20 +16,19 @@ const ExercisesContainer = ({
 }) => {
 	const dispatch = useDispatch();
 	const clearMessage = useClearMessage;
-	const exercises = useSelector(selectExercisesData);
+	const data = useSelector(selectExercisesData);
 	const [page, setPage] = useState(1);
 	const [isLoading, setIsLoading] = useState(false);
 	useEffect(() => {
 		dispatch(fetchExercisesData({ searchName: '', page }));
-		dispatch(fetchExercisesDataLastPage());
 	}, [dispatch, showComponent, page, isLoading]);
 
-	const deleteExercises = (id: string | number | undefined) => {
-		dispatch(deleteExercisesData(id));
+	const deleteExercises = async (id: string | number | undefined) => {
+		await dispatch(deleteExercisesData(id));
 		dispatch(message('Упражнение удалено'));
 		clearMessage(dispatch);
 		setIsLoading(!isLoading);
-		if (exercises.length - 1 === 0) {
+		if (data.exercises?.length && data.exercises?.length - 1 === 0) {
 			if (page !== 1) {
 				setPage(page - 1);
 			}
@@ -42,27 +37,28 @@ const ExercisesContainer = ({
 
 	return (
 		<div className={className}>
-			{exercises.map(({ id, exerciseName, category }) => (
-				<div className="exercises" key={id}>
-					<span>{exerciseName}</span>
-					<span>{category}</span>
-					<Button
-						width="40px"
-						height="40px"
-						backgroundColor="#820000"
-						backgroundColorHover="red"
-						onClick={() => {
-							deleteExercises(id);
-						}}
-					>
-						<p className="minus">
-							<i className="fa fa-times" aria-hidden="true"></i>
-						</p>
-					</Button>
-				</div>
-			))}
+			{data.exercises &&
+				data.exercises.map(({ id, exerciseName, category }) => (
+					<div className="exercises" key={id}>
+						<span>{exerciseName}</span>
+						<span>{category}</span>
+						<Button
+							width="40px"
+							height="40px"
+							backgroundColor="#820000"
+							backgroundColorHover="red"
+							onClick={() => {
+								deleteExercises(id);
+							}}
+						>
+							<p className="minus">
+								<i className="fa fa-times" aria-hidden="true"></i>
+							</p>
+						</Button>
+					</div>
+				))}
 			<div className="pagination">
-				<Pagination page={page} setPage={setPage} />
+				<Pagination page={page} setPage={setPage} lastPage={data.total} />
 			</div>
 		</div>
 	);

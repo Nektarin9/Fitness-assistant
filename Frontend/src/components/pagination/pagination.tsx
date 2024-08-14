@@ -1,16 +1,14 @@
-import { useSelector } from 'react-redux';
-import { selectLastPage } from '../../selectors';
 import styled from 'styled-components';
 
 interface PaginationComponent {
 	className?: string;
 	page?: number;
 	setPage?: React.Dispatch<React.SetStateAction<number>>;
+	lastPage: number | undefined
 }
 
-const PaginationContainer = ({ className, page, setPage}: PaginationComponent) => {
-	const lastPage = useSelector(selectLastPage);
-
+const PaginationContainer = ({ className, page, setPage, lastPage}: PaginationComponent) => {
+	lastPage = Math.ceil(lastPage ? lastPage / 8 : 1)
 	const previousPage = () => {
 		if (setPage && page && page !== 1) {
 			setPage(page - 1);

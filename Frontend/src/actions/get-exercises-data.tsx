@@ -12,7 +12,7 @@ export const fetchExercisesData: any = createAsyncThunk(
 	async ({ searchName = '', page = 1, limit = 8 }: SearchParams) => {
 		try {
 			const response = await request(
-				`http://localhost:3005/exercises?exerciseName_like=${searchName}&_page=${page}&_limit=${limit}`,
+				`http://localhost:4000/exercises?&page=${page}&limit=${limit}&search=${searchName}`,
 			)
 			return response;
 		} catch (error) {
@@ -20,6 +20,4 @@ export const fetchExercisesData: any = createAsyncThunk(
 			throw error;
 		}
 	},
-);
-
-/*?name_like=${searchName}&job_title_like=${searchJobTitle}&phone_like=${searchPhone}&level_like=${searchLevel}&mail_like=${searchMail}&_page=${page}&_limit=${limit}*/
+)

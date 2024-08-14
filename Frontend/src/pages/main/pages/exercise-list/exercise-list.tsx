@@ -3,9 +3,10 @@ import { Button, Input } from '../../../../components';
 import { Categories, Exercises } from './components';
 import { useState } from 'react';
 import { addExercisesData } from '../../../../actions';
-import styled from 'styled-components';
 import { message } from '../../../../reducers/app-slice';
 import { useClearMessage } from '../../../../hooks';
+import styled from 'styled-components';
+
 
 
 const ExerciseListContainer = ({ className }: { className?: string }) => {
@@ -16,8 +17,8 @@ const ExerciseListContainer = ({ className }: { className?: string }) => {
 	const dispatch = useDispatch();
 
 
-	const addExercise = () => {
-		dispatch(addExercisesData({ exerciseName: input, category: selectedCategory }));
+	const addExercise = async () => {
+		await dispatch(addExercisesData({ exerciseName: input, category: selectedCategory }));
 		setShowComponent(!showComponent);
 		dispatch(message('Упражнение добавлено'));
 		clearMessage(dispatch);

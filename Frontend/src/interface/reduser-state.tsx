@@ -15,6 +15,6 @@ export interface СlientsSliceState {
 }
 
 export interface TrainingDataSliceState {
-	exercisesData: ExercisesData[];
+	exercisesData: ExercisesData;
 	// Добавьте другие свойства состояния, если необходимо
 }
