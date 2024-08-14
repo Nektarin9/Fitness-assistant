@@ -1,9 +1,9 @@
-import { ExercisesData, TrainingDataReducerState } from '../interface';
+import { ExercisesData, TrainingDataSliceState } from '../interface';
 
 interface TrainingDataState {
-	trainingDataReducer: TrainingDataReducerState;
+	trainingDataSlice: TrainingDataSliceState;
 }
 
-export const selectExercisesData = (state: TrainingDataState): ExercisesData[] => {
-	return state.trainingDataReducer.exercisesData;
+export const selectExercisesData = (state: TrainingDataState): ExercisesData => {
+	return state.trainingDataSlice.exercisesData;
 };

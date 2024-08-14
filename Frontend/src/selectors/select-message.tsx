@@ -1,10 +1,10 @@
-import { AppReducerState } from '../interface';
+import { AppSliceState } from '../interface/reduser-state';
 
 interface AppState {
-	appReducer: AppReducerState;
+	appSlice: AppSliceState;
 }
 
 // Типизированный селектор
 export const selectMessage = (state: AppState): string => {
-	return state.appReducer.actionMessage;
+	return state.appSlice.actionMessage;
 };

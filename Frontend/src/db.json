@@ -2,93 +2,154 @@
   "clients": [
     {
       "image": "https://iimg.su/s/08/L5ANipCzyfYd4qbAO4hWxlZ5HvWTmTYxoc5JnITs.png",
-      "name": "agwe",
-      "phone": "235235",
-      "age": "32544",
-      "training_program": {},
+      "name": "Каспаров Владислав Маратович",
+      "phone": "+7 917 585 15 60",
+      "age": "27",
+      "training_program": [
+        {
+          "id": 24,
+          "table": [
+            {
+              "id": 4,
+              "exercise": "Сгибание",
+              "description": "текст"
+            },
+            {
+              "id": 7,
+              "exercise": "Сгибание",
+              "description": "текст"
+            }
+          ]
+        },
+        {
+          "id": 26,
+          "table": [
+            {
+              "id": 4,
+              "exercise": "Сгибание",
+              "description": "текст"
+            },
+            {
+              "id": 7,
+              "exercise": "Сгибание",
+              "description": "текст"
+            }
+          ]
+        }
+      ],
       "id": 1
     },
     {
       "image": "https://iimg.su/s/08/L5ANipCzyfYd4qbAO4hWxlZ5HvWTmTYxoc5JnITs.png",
       "name": "Владислав999",
-      "phone": "gserg9",
+      "phone": "gserg9444",
       "age": "44",
+      "training_program": [
+        {
+          "id": 24,
+          "table": [
+            {
+              "id": 4,
+              "exercise": "",
+              "description": ""
+            }
+          ]
+        }
+      ],
       "id": 16
-    },
-    {
-      "image": "",
-      "name": "кукуhawegh",
-      "phone": "22299",
-      "age": "",
-      "training_program": {},
-      "id": 17
     },
     {
       "image": "https://iimg.su/s/08/L5ANipCzyfYd4qbAO4hWxlZ5HvWTmTYxoc5JnITs.png",
       "name": "Перскик",
       "phone": "1241241241",
       "age": "432",
-      "training_program": {},
+      "training_program": [
+        {
+          "id": 24,
+          "table": [
+            {
+              "id": 4,
+              "exercise": "",
+              "description": ""
+            }
+          ]
+        }
+      ],
       "id": 31
-    },
-    {
-      "image": "",
-      "name": "drtjdrtj",
-      "phone": "",
-      "age": "",
-      "training_program": {},
-      "id": 32
-    },
-    {
-      "image": "",
-      "name": "huilhuil",
-      "phone": "999",
-      "age": "99",
-      "training_program": {},
-      "id": 34
     },
     {
       "image": "https://iimg.su/s/08/L5ANipCzyfYd4qbAO4hWxlZ5HvWTmTYxoc5JnITs.png",
       "name": "huilhuil889080",
-      "phone": "780780",
+      "phone": "78078088",
       "age": "",
-      "training_program": {},
+      "training_program": [
+        {
+          "id": 24,
+          "table": [
+            {
+              "id": 4,
+              "exercise": "",
+              "description": ""
+            }
+          ]
+        }
+      ],
       "id": 35
     },
     {
-      "image": "",
+      "image": "https://4x4photo.ru/wp-content/uploads/2023/07/0f7c1575-a491-453b-a195-07a3afdbff64.jpg",
       "name": "",
       "phone": "",
       "age": "",
-      "training_program": {},
-      "id": 36
+      "training_program": [
+        {
+          "id": "bfnrpn4iu",
+          "table": [
+            {
+              "id": "fjy3nb5gb",
+              "exercise": "",
+              "description": ""
+            }
+          ]
+        }
+      ],
+      "id": 43
+    },
+    {
+      "image": "https://4x4photo.ru/wp-content/uploads/2023/07/0f7c1575-a491-453b-a195-07a3afdbff64.jpg",
+      "name": "12faqwf",
+      "phone": "",
+      "age": "",
+      "training_program": [
+        {
+          "id": "mb5j7clmj",
+          "table": [
+            {
+              "id": "vhi9r6mmy",
+              "exercise": "",
+              "description": ""
+            }
+          ]
+        }
+      ],
+      "id": 44
     }
   ],
   "exercises": [
     {
-      "id": 745,
-      "exerciseName": "Поднять руку :)",
-      "category": "Руки"
+      "exerciseName": "Поднятие гантели, сидя",
+      "category": "Руки",
+      "id": 1
     },
     {
-      "id": 23612,
-      "exerciseName": "Поднять ногу :)",
-      "category": "Ноги"
+      "exerciseName": "Сгибание ",
+      "category": "Ноги",
+      "id": 2
     },
     {
-      "id": 2352,
-      "exerciseName": "Поднять грудь9999999 9999999999999999999999 :)",
-      "category": "Грудь"
-    },
-    {
-      "id": 124,
-      "exerciseName": "Поднять спину :)",
-      "category": "Спина"
-    },
-    {
-      "exerciseName": "",
-      "category": "Спина",
-      "id": 23617
+      "exerciseName": "Сведение",
+      "category": "Ноги",
+      "id": 3
     }
   ]
 }

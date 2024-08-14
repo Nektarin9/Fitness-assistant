@@ -1,2 +1,3 @@
 export { appSlice } from './app-slice';
-export { trainingDataReducer } from './training-data-reducer';
+export { clientsSlice } from './clients-slice';
+export { trainingDataSlice } from './training-data-slice';

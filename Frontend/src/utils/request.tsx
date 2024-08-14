@@ -7,3 +7,6 @@ export const request = (url: string, method?: string, data?: object) => {
 		body: data ? JSON.stringify(data) : undefined,
 	}).then((res) => (method !== 'DELETE' ? res.json() : null));
 };
+
+
+

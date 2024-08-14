@@ -11,10 +11,10 @@ const MessageContainer = ({ className, children }: MessageContainerProps) => {
 };
 
 export const Message = styled(MessageContainer)`
-	background-color: ${({ backgroundColor = '#26ae5cbd' }) => backgroundColor};
+	background-color: ${({ backgroundColor = '#06873adb' }) => backgroundColor};
 	color: #ffffff;
 	position: fixed;
-	max-width: 200px;
+	max-width: 250px;
 	padding: 10px;
 	font-size: 18px;
 	border-radius: 10px;

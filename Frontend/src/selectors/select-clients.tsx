@@ -1,13 +1,10 @@
-import { AppReducerState, Person } from '../interface';
-
-
-
+import { СlientsSliceState, Person } from '../interface';
 
 interface AppState {
-	appReducer: AppReducerState;
+	clientsSlice: СlientsSliceState;
 }
 
 // Типизированный селектор
 export const selectClients = (state: AppState): Person[] => {
-	return state.appReducer.clients;
+	return state.clientsSlice.clients;
 };
