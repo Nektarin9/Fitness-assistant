@@ -16,7 +16,11 @@ export const clientsSlice = createSlice({
 		clients: [] as Person[],
 		client: {} as Person,
 	},
-	reducers: {},
+	reducers: {
+		clearClient: (state) => {
+			state.client = {};
+		},
+	},
 	extraReducers: (builder) => {
 		builder.addCase(fetchClients.fulfilled, (state, action) => {
 			state.clients = action.payload;
@@ -34,11 +38,12 @@ export const clientsSlice = createSlice({
 			changeData(state.clients, action.payload, 'DELETE');
 		});
 		builder.addCase(postTrainingTable.fulfilled, (state, action) => {
-			if (Array.isArray(state.client.training_program)) {
-				changeData(state.client.training_program, action.payload, 'ADD');
+			if (Array.isArray(state.client.trainingProgram)) {
+				changeData(state.client.trainingProgram, action.payload, 'ADD');
 			}
 		});
 	},
 });
 // Экспортируем редукторы
+export const { clearClient} = clientsSlice.actions;
 export default clientsSlice.reducer;

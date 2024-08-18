@@ -1,5 +1,4 @@
-{
-  "clients": [
+[
     {
       "image": "https://iimg.su/s/08/L5ANipCzyfYd4qbAO4hWxlZ5HvWTmTYxoc5JnITs.png",
       "name": "Каспаров Владислав Маратович",
@@ -7,37 +6,30 @@
       "age": "27",
       "training_program": [
         {
-          "id": 24,
           "table": [
             {
-              "id": 4,
               "exercise": "Сгибание",
               "description": "текст"
             },
             {
-              "id": 7,
               "exercise": "Сгибание",
               "description": "текст"
             }
           ]
         },
         {
-          "id": 26,
           "table": [
             {
-              "id": 4,
               "exercise": "Сгибание",
               "description": "текст"
             },
             {
-              "id": 7,
               "exercise": "Сгибание",
               "description": "текст"
             }
           ]
         }
-      ],
-      "id": 1
+      ]
     },
     {
       "image": "https://iimg.su/s/08/L5ANipCzyfYd4qbAO4hWxlZ5HvWTmTYxoc5JnITs.png",
@@ -46,17 +38,14 @@
       "age": "44",
       "training_program": [
         {
-          "id": 24,
           "table": [
             {
-              "id": 4,
               "exercise": "",
               "description": ""
             }
           ]
         }
-      ],
-      "id": 16
+      ]
     },
     {
       "image": "https://iimg.su/s/08/L5ANipCzyfYd4qbAO4hWxlZ5HvWTmTYxoc5JnITs.png",
@@ -65,17 +54,14 @@
       "age": "432",
       "training_program": [
         {
-          "id": 24,
           "table": [
             {
-              "id": 4,
               "exercise": "",
               "description": ""
             }
           ]
         }
-      ],
-      "id": 31
+      ]
     },
     {
       "image": "https://iimg.su/s/08/L5ANipCzyfYd4qbAO4hWxlZ5HvWTmTYxoc5JnITs.png",
@@ -84,17 +70,14 @@
       "age": "",
       "training_program": [
         {
-          "id": 24,
           "table": [
             {
-              "id": 4,
               "exercise": "",
               "description": ""
             }
           ]
         }
-      ],
-      "id": 35
+      ]
     },
     {
       "image": "https://4x4photo.ru/wp-content/uploads/2023/07/0f7c1575-a491-453b-a195-07a3afdbff64.jpg",
@@ -103,17 +86,14 @@
       "age": "",
       "training_program": [
         {
-          "id": "bfnrpn4iu",
           "table": [
             {
-              "id": "fjy3nb5gb",
               "exercise": "",
               "description": ""
             }
           ]
         }
-      ],
-      "id": 43
+      ]
     },
     {
       "image": "https://4x4photo.ru/wp-content/uploads/2023/07/0f7c1575-a491-453b-a195-07a3afdbff64.jpg",
@@ -122,53 +102,13 @@
       "age": "",
       "training_program": [
         {
-          "id": "mb5j7clmj",
           "table": [
             {
-              "id": "vhi9r6mmy",
               "exercise": "",
               "description": ""
             }
           ]
         }
-      ],
-      "id": 44
-    },
-    {
-      "image": "https://4x4photo.ru/wp-content/uploads/2023/07/0f7c1575-a491-453b-a195-07a3afdbff64.jpg",
-      "name": "",
-      "phone": "",
-      "age": "",
-      "trainingProgram": [
-        {
-          "id": "zn423snl0",
-          "table": [
-            {
-              "id": "ijn55bazo",
-              "exercise": "",
-              "description": ""
-            }
-          ]
-        }
-      ],
-      "id": 45
-    }
-  ],
-  "exercises": [
-    {
-      "exerciseName": "Поднятие гантели, сидя",
-      "category": "Руки",
-      "id": 1
-    },
-    {
-      "exerciseName": "Сгибание ",
-      "category": "Ноги",
-      "id": 2
-    },
-    {
-      "exerciseName": "Сведение",
-      "category": "Ноги",
-      "id": 3
+      ]
     }
   ]
-}

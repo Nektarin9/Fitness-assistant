@@ -6,7 +6,7 @@ export const fetchClients: any = createAsyncThunk<Person[], void>(
 	'clients/fetchClients',
 	async () => {
 		try {
-			const response = await request('http://localhost:3005/clients');
+			const response = await request('http://localhost:4000/clients');
 			return response;
 		} catch (error) {
 			console.error(error);
