@@ -8,7 +8,6 @@ import styled from 'styled-components';
 
 const ListWorkoutsContainer = ({ className }: { className?: string }) => {
 	const client = useSelector(selectClient);
-	console.log(client.trainingProgram);
 	const dispatch = useDispatch();
 	const params = useParams();
 	useEffect(() => {
@@ -32,7 +31,7 @@ const ListWorkoutsContainer = ({ className }: { className?: string }) => {
 			</div>
 			<div className="training-container">
 				{client.trainingProgram?.map(({ id, table }) => (
-					<ExerciseChart key={id} table={table} />
+					<ExerciseChart key={id} id={params.id} trainingId={id} table={table} />
 				))}
 			</div>
 		</div>

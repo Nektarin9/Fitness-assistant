@@ -1,38 +1,62 @@
+import { useDispatch, useSelector } from 'react-redux';
 import { Button } from '../../../button/button';
+import { addTrainingTable, deleteTrainingTable } from '../../../../actions';
+import { selectClient } from '../../../../selectors';
 import styled from 'styled-components';
 
-
 interface ControlPanelContainerProps {
-    className?: string;
-    setEdit?: (edit: boolean) => void;
+	className?: string;
+	setEdit?: (edit: boolean) => void;
+	id?: number | string;
+	trainingId?: number | string;
 }
-const ControlPanelContainer: React.FC<ControlPanelContainerProps> = ({ className, setEdit }) => {
-    return (
-        <div className={className}>
-            <div className="editing-table">
-                <i
-                    onClick={() => setEdit && setEdit(false)}
-                    className="fa fa-pencil"
-                    aria-hidden="true"
-                ></i>
-                <i
-                    onClick={() => setEdit && setEdit(true)}
-                    className="fa fa-check"
-                    aria-hidden="true"
-                ></i>
-            </div>
-            <Button
-                backgroundColor="#820000"
-                width="30px"
-                height="30px"
-                backgroundColorHover="red"
-            >
-                ✖
-            </Button>
-        </div>
-    );
-};
 
+const ControlPanelContainer: React.FC<ControlPanelContainerProps> = ({
+	className,
+	setEdit,
+	id,
+	trainingId,
+}) => {
+	const dispatch = useDispatch();
+	const deleteTrening = (id?: number | string, trainingId?: number | string) => {
+		dispatch(deleteTrainingTable({ id, trainingId }));
+	};
+	const clietn = useSelector(selectClient);
+	const trainingProgram = clietn.trainingProgram?.find(
+		(elem) => elem.id === trainingId,
+	);
+
+	return (
+		<div className={className}>
+			<div className="editing-table">
+				<i
+					onClick={() => setEdit && setEdit(false)}
+					className="fa fa-pencil"
+					aria-hidden="true"
+				></i>
+				<i
+					onClick={async () => {
+						await dispatch(
+							addTrainingTable({ id, training: trainingProgram }),
+						);
+						setEdit && setEdit(true);
+					}}
+					className="fa fa-check"
+					aria-hidden="true"
+				></i>
+			</div>
+			<Button
+				backgroundColor="#820000"
+				width="30px"
+				height="30px"
+				backgroundColorHover="red"
+				onClick={() => deleteTrening(id, trainingId)}
+			>
+				✖
+			</Button>
+		</div>
+	);
+};
 
 export const ControlPanel = styled(ControlPanelContainer)`
 	display: flex;

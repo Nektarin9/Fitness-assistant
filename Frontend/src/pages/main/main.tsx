@@ -2,9 +2,8 @@ import { useEffect } from 'react';
 import { BackButton, Header } from '../../components';
 import { NavLink, Outlet } from 'react-router-dom';
 import { useDispatch } from 'react-redux';
-import { clearClient } from '../../reducers/clients-slice';
+import { clearClient } from '../../reducers/client-slice';
 import styled from 'styled-components';
-
 
 const MainContainer = ({
 	className,
@@ -12,10 +11,10 @@ const MainContainer = ({
 	className?: string;
 	children?: React.ReactNode;
 }) => {
-	const dispatch = useDispatch()
+	const dispatch = useDispatch();
 	useEffect(() => {
-		dispatch(clearClient())
-	}, [dispatch])
+		dispatch(clearClient());
+	}, [dispatch]);
 	return (
 		<>
 			<Header />

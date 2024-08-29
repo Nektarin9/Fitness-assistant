@@ -11,13 +11,14 @@ async function getClient(params) {
 }
 
 async function postClient({ image, name, phone, age, trainingProgram }) {
-  await Clients.create({
+  const newClient = await Clients.create({
     image,
     name,
     phone,
     age,
     training_program: trainingProgram,
   });
+  return newClient;
 }
 
 async function deleteClient(params) {
@@ -30,8 +31,28 @@ async function updateClient({ image, name, phone, age }, params) {
     { _id: params }, // Используем _id вместо id
     { $set: updatedClientt }
   );
+  const newClient = await Clients.findById(params);
 
-  return updatedClientt;
+  return newClient;
+}
+
+async function updateTableClient(training, id) {
+  const client = await Clients.findById(id); // Находим объект по ID
+  client.training_program.forEach((item) => {
+    if (item._id.toString() === training.id) {
+      item.table = [
+        ...training.table.filter(
+          ({ description, exercise }) => description || exercise
+        ),
+      ];
+    }
+  });
+
+  await Clients.updateOne(
+    { _id: id }, // Используем _id вместо id
+    { $set: client }
+  );
+  return training.id;
 }
 
 module.exports = {
@@ -40,4 +61,5 @@ module.exports = {
   postClient,
   deleteClient,
   updateClient,
+  updateTableClient,
 };

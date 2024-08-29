@@ -1,23 +1,33 @@
 import { Input } from '../input/input';
 import { useState } from 'react';
-import styled from 'styled-components';
 import { TrainingProgram } from '../../interface';
 import { Button } from '../button/button';
 import { ControlPanel } from './components';
-
+import { useDispatch } from 'react-redux';
+import {
+	addExerciseTable,
+	descriptionInput,
+	exerciseInput,
+} from '../../reducers/client-slice';
+import styled from 'styled-components';
 
 const ExerciseChartConteiner = ({
 	className,
 	table,
+	id,
+	trainingId,
 }: {
 	className?: string;
 	table?: TrainingProgram[];
+	id?: number | string;
+	trainingId?: number | string;
 }) => {
 	const [edit, setEdit] = useState(true);
-
+	const dispatch = useDispatch();
+	const [searchBlock, setSearchBlock] = useState(false);
 	return (
 		<div className={className}>
-			<ControlPanel setEdit={setEdit} />
+			<ControlPanel id={id} trainingId={trainingId} setEdit={setEdit} />
 
 			<table className="table">
 				<thead>
@@ -33,8 +43,18 @@ const ExerciseChartConteiner = ({
 							<td>{index + 1}</td>
 							<td>
 								<Input
+									action={'SEARCH'}
 									value={exercise}
 									disabled={edit}
+									onChange={({ target }) =>
+										dispatch(
+											exerciseInput({
+												value: target.value,
+												trainingId,
+												id,
+											}),
+										)
+									}
 									background="transparent"
 									border={edit ? 'none' : '1px solid #000000'}
 									width="150px"
@@ -45,6 +65,15 @@ const ExerciseChartConteiner = ({
 								<Input
 									value={description}
 									disabled={edit}
+									onChange={({ target }) =>
+										dispatch(
+											descriptionInput({
+												value: target.value,
+												trainingId,
+												id,
+											}),
+										)
+									}
 									background="transparent"
 									border={edit ? 'none' : '1px solid #000000'}
 									width="150px"
@@ -55,7 +84,13 @@ const ExerciseChartConteiner = ({
 					))}
 				</tbody>
 			</table>
-			<div className="add-btn">{!edit && <Button>Добавить</Button>}</div>
+			<div className="add-btn">
+				{!edit && (
+					<Button onClick={() => dispatch(addExerciseTable(trainingId))}>
+						Добавить
+					</Button>
+				)}
+			</div>
 		</div>
 	);
 };
@@ -80,6 +115,7 @@ export const ExerciseChart = styled(ExerciseChartConteiner)`
 		background-color: #f9f9f9;
 	}
 	.add-btn {
+		margin: auto;
 		margin: 10px;
 		display: flex;
 		justify-content: center;

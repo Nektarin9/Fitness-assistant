@@ -24,8 +24,8 @@ const AdditionContainer = ({ className }: { className?: string }) => {
 	const clients = useSelector(selectClients);
 	const client = findClient(clients, params.id);
 
-	const handleAdd = () => {
-		dispatch(
+	const handleAdd = async () => {
+		await dispatch(
 			postClient({
 				image: photoUrl,
 				name: clientName,
@@ -35,8 +35,8 @@ const AdditionContainer = ({ className }: { className?: string }) => {
 					{
 						table: [
 							{
-								exercise: '',
-								description: '',
+								exercise: 'Упражнение',
+								description: 'Описание',
 							},
 						],
 					},
@@ -47,8 +47,8 @@ const AdditionContainer = ({ className }: { className?: string }) => {
 		clearMessage(dispatch);
 		navigate('/');
 	};
-	const handleUpdate = () => {
-		dispatch(
+	const handleUpdate = async () => {
+		await dispatch(
 			updateClient({
 				id: params.id,
 				image: photoUrl,

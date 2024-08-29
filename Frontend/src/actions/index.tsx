@@ -8,3 +8,5 @@ export { addExercisesData } from './post-exercises-data';
 export { deleteExercisesData } from './delete-exercises-data';
 export { fetchClient } from './fetch-client';
 export { postTrainingTable } from './post-table-trening';
+export { deleteTrainingTable } from './delete-training-table';
+export { addTrainingTable } from './add-training-table';

@@ -18,6 +18,7 @@ export const appSlice = createSlice({
 		},
 	},
 });
+
 // Экспортируем редукторы
 export const { message, clearMessage, inputSearch } = appSlice.actions;
 export default appSlice.reducer;

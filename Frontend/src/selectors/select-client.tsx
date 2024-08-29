@@ -1,9 +1,9 @@
 import { СlientsSliceState, Person } from '../interface';
 
 interface AppState {
-	clientsSlice: СlientsSliceState;
+	clientSlice: СlientsSliceState;
 }
 
 export const selectClient = (state: AppState): Person => {
-	return state.clientsSlice.client;
+	return state.clientSlice.client;
 };
