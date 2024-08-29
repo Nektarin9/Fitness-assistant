@@ -6,13 +6,13 @@ export const postTrainingTable: any = createAsyncThunk(
 	async (id: number | string) => {
 		try {
 			const response = await request(
-				`http://localhost:3005/clients/${id}`,
+				`http://localhost:4000/clients-training/${id}`,
 				'POST',
 				{
 					table: [
 						{
-							exercise: '',
-							description: '',
+							exercise: 'Упражнение',
+							description: 'Описание',
 						},
 					],
 				},

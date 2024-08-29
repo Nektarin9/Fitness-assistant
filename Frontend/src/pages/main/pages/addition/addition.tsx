@@ -5,7 +5,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import { postClient, updateClient } from '../../../../actions';
 import { useNavigate, useParams } from 'react-router-dom';
 import { selectClients } from '../../../../selectors';
-import { findClient, generateId } from '../../../../utils';
+import { findClient } from '../../../../utils';
 import { useClearMessage } from '../../../../hooks';
 import { message } from '../../../../reducers/app-slice';
 import { DEFAULT_URL } from '../../../../constants';
@@ -24,21 +24,19 @@ const AdditionContainer = ({ className }: { className?: string }) => {
 	const clients = useSelector(selectClients);
 	const client = findClient(clients, params.id);
 
-	const handleAdd = () => {
-		dispatch(
+	const handleAdd = async () => {
+		await dispatch(
 			postClient({
 				image: photoUrl,
 				name: clientName,
 				phone: clientPhone,
 				age: clientAge,
-				training_program: [
+				trainingProgram: [
 					{
-						id: generateId(),
 						table: [
 							{
-								id: generateId(),
-								exercise: '',
-								description: '',
+								exercise: 'Упражнение',
+								description: 'Описание',
 							},
 						],
 					},
@@ -49,8 +47,8 @@ const AdditionContainer = ({ className }: { className?: string }) => {
 		clearMessage(dispatch);
 		navigate('/');
 	};
-	const handleUpdate = () => {
-		dispatch(
+	const handleUpdate = async () => {
+		await dispatch(
 			updateClient({
 				id: params.id,
 				image: photoUrl,

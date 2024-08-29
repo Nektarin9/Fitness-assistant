@@ -7,7 +7,7 @@ export const updateClient: any = createAsyncThunk(
 	async (data: Person) => {
 		try {
 			const response = await request(
-				`http://localhost:3005/clients/${data.id}`,
+				`http://localhost:4000/clients/${data.id}`,
 				'PATCH',
 				{
 					image: data.image,

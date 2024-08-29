@@ -8,7 +8,6 @@ import styled from 'styled-components';
 
 const ListWorkoutsContainer = ({ className }: { className?: string }) => {
 	const client = useSelector(selectClient);
-	console.log(client.training_program);
 	const dispatch = useDispatch();
 	const params = useParams();
 	useEffect(() => {
@@ -31,8 +30,8 @@ const ListWorkoutsContainer = ({ className }: { className?: string }) => {
 				<img src={client.image} />
 			</div>
 			<div className="training-container">
-				{client.training_program?.map(({ id, table }) => (
-					<ExerciseChart key={id} table={table} />
+				{client.trainingProgram?.map(({ id, table }) => (
+					<ExerciseChart key={id} id={params.id} trainingId={id} table={table} />
 				))}
 			</div>
 		</div>

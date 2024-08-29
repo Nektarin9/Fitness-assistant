@@ -13,8 +13,8 @@ export const changeData = (
 			}
 		});
 	} else if (type === 'DELETE') {
-		data.forEach((product, index) => {
-			if (product.id === payload) {
+		data.forEach((item, index) => {
+			if (item.id === payload) {
 				data.splice(index, 1);
 			}
 		});

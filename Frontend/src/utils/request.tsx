@@ -1,4 +1,8 @@
-export const request = (url: string, method?: string, data?: object) => {
+export const request = (
+	url: string,
+	method?: 'POST' | 'PATCH' | 'PUT' | 'DELETE',
+	data?: object,
+) => {
 	return fetch(url, {
 		headers: {
 			'content-type': 'application/json',
@@ -7,6 +11,3 @@ export const request = (url: string, method?: string, data?: object) => {
 		body: data ? JSON.stringify(data) : undefined,
 	}).then((res) => (method !== 'DELETE' ? res.json() : null));
 };
-
-
-

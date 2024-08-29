@@ -1,18 +1,15 @@
 import { BackButton } from '../../components';
-import { Link, Outlet, useParams } from 'react-router-dom';
+import { Outlet } from 'react-router-dom';
 import styled from 'styled-components';
 
 const ClientInfoContainer = ({ className }: { className?: string }) => {
-	const params = useParams();
 	return (
 		<>
 			<div className={className}>
 				<div className="backButton">
 					<BackButton />
 				</div>
-				<Link to={`/client/:${params.id}/add`} className="add-table">
-					<i className="fa fa-plus-square fa-4x" aria-hidden="true"></i>
-				</Link>
+
 				<Outlet />
 			</div>
 		</>
