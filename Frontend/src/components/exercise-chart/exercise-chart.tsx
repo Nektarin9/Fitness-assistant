@@ -24,7 +24,6 @@ const ExerciseChartConteiner = ({
 }) => {
 	const [edit, setEdit] = useState(true);
 	const dispatch = useDispatch();
-	const [searchBlock, setSearchBlock] = useState(false);
 	return (
 		<div className={className}>
 			<ControlPanel id={id} trainingId={trainingId} setEdit={setEdit} />
@@ -45,6 +44,7 @@ const ExerciseChartConteiner = ({
 								<Input
 									action={'SEARCH'}
 									value={exercise}
+									exerciseId={{ id, trainingId }}
 									disabled={edit}
 									onChange={({ target }) =>
 										dispatch(
