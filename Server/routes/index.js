@@ -1,10 +1,11 @@
 const express = require("express");
-
+const authenticated = require("../middlewares/authenticated")
 const router = express.Router({ mergeParams: true });
 
-router.use("/exercises", require("./exercises"));
-router.use("/clients", require("./clients"));
-router.use("/clients-training", require("./clients-training"));
+router.use("/", require("./auth"));
+router.use("/exercises", authenticated, require("./exercises"));
+router.use("/clients", authenticated, require("./clients"));
+router.use("/clients-training", authenticated, require("./clients-training"));
 
 
 module.exports = router;
