@@ -1,13 +1,47 @@
+import { useState } from 'react';
+import { useDispatch } from 'react-redux';
+import { authUser, registrationUser } from '../../actions';
 import styled from 'styled-components';
+import { useNavigate } from 'react-router-dom';
+
 const AuthorizationContainer = ({ className }: { className?: string }) => {
+	const dispatch = useDispatch();
+	const [login, setLogin] = useState('');
+	const [password, setPassword] = useState('');
+
+	const navigate = useNavigate();
 	return (
 		<div className={className}>
 			<div className="container">
 				<h1>Авторизация</h1>
 				<div>
-					<input type="text" />
-					<input type="text" />
-					<button>Войти</button>
+					<input
+						value={login}
+						placeholder='Логин'
+						onChange={({ target }) => setLogin(target.value)}
+						type="text"
+					/>
+					<input
+						value={password}
+						placeholder='Пароль'
+						onChange={({ target }) => setPassword(target.value)}
+						type="text"
+					/>
+					<button
+						onClick={() => {
+							dispatch(authUser({ login, password }));
+							  navigate('/');
+						}}
+					>
+						Войти
+					</button>
+					<button
+						onClick={() => {
+							dispatch(registrationUser({ login, password }));
+						}}
+					>
+						Регистрация
+					</button>
 				</div>
 			</div>
 		</div>
@@ -52,6 +86,7 @@ export const Authorization = styled(AuthorizationContainer)`
 		cursor: pointer;
 		width: 100%;
 		height: 40px;
+		margin-top: 15px;
 		font-size: 18px;
 		border-radius: 5px;
 		background-color: #ffffff;

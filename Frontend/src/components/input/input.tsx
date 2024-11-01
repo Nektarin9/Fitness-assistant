@@ -1,9 +1,9 @@
 import { useEffect, useRef, useState } from 'react';
-import styled from 'styled-components';
 import { SearchSuggestions } from '../search-suggestions/search-suggestions';
 import { useDispatch } from 'react-redux';
 import { clearExercisesData } from '../../reducers/training-data-slice';
 import { useParams } from 'react-router-dom';
+import styled from 'styled-components';
 
 interface InputContainerProps {
 	className?: string;
@@ -57,8 +57,7 @@ const InputContainer: React.FC<InputContainerProps> = ({
 			<input
 				className="input-exercise"
 				onFocus={() => {
-					dispatch(clearExercisesData());
-
+					action === 'SEARCH' && dispatch(clearExercisesData());
 					setSearchBlock(true);
 				}}
 				{...props}

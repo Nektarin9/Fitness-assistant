@@ -1,10 +1,10 @@
-import { Button, Pagination } from '../../../../../../components';
+import { Button, Pagination } from '../../../components';
 import { useDispatch, useSelector } from 'react-redux';
-import { selectExercisesData } from '../../../../../../selectors';
+import { selectExercisesData } from '../../../selectors';
 import { useEffect, useState } from 'react';
-import { deleteExercisesData, fetchExercisesData } from '../../../../../../actions';
-import { message } from '../../../../../../reducers/app-slice';
-import { useClearMessage } from '../../../../../../hooks';
+import { deleteExercisesData, fetchExercisesData } from '../../../actions';
+import { message } from '../../../reducers/app-slice';
+import { useClearMessage } from '../../../hooks';
 import styled from 'styled-components';
 
 const ExercisesContainer = ({

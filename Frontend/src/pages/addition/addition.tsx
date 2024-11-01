@@ -1,14 +1,14 @@
 /* eslint-disable react-hooks/exhaustive-deps */
-import { ClientForm } from '../../../../components';
+import { ClientForm } from './client-form/client-form';
 import { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { postClient, updateClient } from '../../../../actions';
+import { postClient, updateClient } from '../../actions';
 import { useNavigate, useParams } from 'react-router-dom';
-import { selectClients } from '../../../../selectors';
-import { findClient } from '../../../../utils';
-import { useClearMessage } from '../../../../hooks';
-import { message } from '../../../../reducers/app-slice';
-import { DEFAULT_URL } from '../../../../constants';
+import { selectClients } from '../../selectors';
+import { findClient } from '../../utils';
+import { useClearMessage } from '../../hooks';
+import { message } from '../../reducers/app-slice';
+import { DEFAULT_URL } from '../../constants';
 import styled from 'styled-components';
 
 const AdditionContainer = ({ className }: { className?: string }) => {

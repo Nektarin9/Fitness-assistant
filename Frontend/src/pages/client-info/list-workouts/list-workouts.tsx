@@ -1,9 +1,9 @@
-import { Button, ExerciseChart } from '../../../../components';
+import { Button, ExerciseChart } from '../../../components';
 import { useDispatch, useSelector } from 'react-redux';
-import { selectClient } from '../../../../selectors';
+import { selectClient } from '../../../selectors';
 import { useParams } from 'react-router-dom';
 import { useEffect } from 'react';
-import { fetchClient, postTrainingTable } from '../../../../actions';
+import { fetchClient, postTrainingTable } from '../../../actions';
 import styled from 'styled-components';
 
 const ListWorkoutsContainer = ({ className }: { className?: string }) => {
@@ -31,7 +31,12 @@ const ListWorkoutsContainer = ({ className }: { className?: string }) => {
 			</div>
 			<div className="training-container">
 				{client.trainingProgram?.map(({ id, table }) => (
-					<ExerciseChart key={id} id={params.id} trainingId={id} table={table} />
+					<ExerciseChart
+						key={id}
+						id={params.id}
+						trainingId={id}
+						table={table}
+					/>
 				))}
 			</div>
 		</div>

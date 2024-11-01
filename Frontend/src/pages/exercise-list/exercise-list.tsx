@@ -1,10 +1,10 @@
 import { useDispatch } from 'react-redux';
-import { Button, Input } from '../../../../components';
-import { Categories, Exercises } from './components';
+import { Button, Input } from '../../components';
+import { Categories, Exercises } from './index';
 import { useState } from 'react';
-import { addExercisesData } from '../../../../actions';
-import { message } from '../../../../reducers/app-slice';
-import { useClearMessage } from '../../../../hooks';
+import { addExercisesData } from '../../actions';
+import { message } from '../../reducers/app-slice';
+import { useClearMessage } from '../../hooks';
 import styled from 'styled-components';
 
 

@@ -1,6 +1,6 @@
 import styled from 'styled-components';
-import { Button } from '../button/button';
-import { Input } from '../input/input';
+import { Button } from '../../../components';
+import { Input } from '../../../components';
 
 interface ClientFormContainerProps {
 	className?: string;

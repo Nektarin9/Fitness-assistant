@@ -15,6 +15,7 @@ const MainContainer = ({
 	useEffect(() => {
 		dispatch(clearClient());
 	}, [dispatch]);
+
 	return (
 		<>
 			<Header />

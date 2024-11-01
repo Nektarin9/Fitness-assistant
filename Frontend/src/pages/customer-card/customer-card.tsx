@@ -1,13 +1,13 @@
 import { useDispatch, useSelector } from 'react-redux';
 import { Link } from 'react-router-dom';
-import { selectClients } from '../../../../selectors';
+import { selectClients } from '../../selectors';
 import { useEffect } from 'react';
-import { Button } from '../../../../components';
-import { deleteClient, fetchClients } from '../../../../actions';
+import { Button } from '../../components';
+import { deleteClient, fetchClients } from '../../actions';
 import styled from 'styled-components';
 
 
-const ClienstsContainer = ({ className }: { className?: string }) => {
+const CustomerCardContainer = ({ className }: { className?: string }) => {
 	const dispatch = useDispatch();
 	const clients = useSelector(selectClients);
 	useEffect(() => {
@@ -46,7 +46,7 @@ const ClienstsContainer = ({ className }: { className?: string }) => {
 	);
 };
 
-export const Clients = styled(ClienstsContainer)`
+export const CustomerCard = styled(CustomerCardContainer)`
 	display: flex;
 	justify-content: center;
 	flex-wrap: wrap;
