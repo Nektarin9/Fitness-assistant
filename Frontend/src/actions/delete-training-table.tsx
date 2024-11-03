@@ -11,7 +11,7 @@ export const deleteTrainingTable: any = createAsyncThunk(
 		trainingId?: number | string;
 	}) => {
 		try {
-			await request(`http://localhost:4000/clients-training`, 'DELETE', {
+			await request(`/clients-training`, 'DELETE', {
 				id,
 				trainingId,
 			});

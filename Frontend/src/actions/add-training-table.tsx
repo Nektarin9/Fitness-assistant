@@ -12,7 +12,7 @@ export const addTrainingTable: any = createAsyncThunk(
 	async (data: data) => {
 		try {
 			await request(
-				`http://localhost:4000/clients/save-table/${data.id}`,
+				`/clients/save-table/${data.id}`,
 				'PATCH',
 				{
 					...data.training,

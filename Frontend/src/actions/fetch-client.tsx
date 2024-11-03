@@ -5,7 +5,7 @@ export const fetchClient: any = createAsyncThunk(
 	'clients/fetchClient',
 	async (id: string | number) => {
 		try {
-			const response = await request(`http://localhost:4000/clients/${id}`);
+			const response = await request(`/clients/${id}`);
 			return response;
 		} catch (error) {
 			console.error(error);

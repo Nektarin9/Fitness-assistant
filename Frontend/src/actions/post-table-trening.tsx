@@ -6,7 +6,7 @@ export const postTrainingTable: any = createAsyncThunk(
 	async (id: number | string) => {
 		try {
 			const response = await request(
-				`http://localhost:4000/clients-training/${id}`,
+				`/clients-training/${id}`,
 				'POST',
 				{
 					table: [

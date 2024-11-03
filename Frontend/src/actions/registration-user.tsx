@@ -11,7 +11,7 @@ export const registrationUser: any = createAsyncThunk(
 	async (user: UserType) => {
 		try {
 			const response = await request(
-				`http://localhost:4000/register`,
+				`/register`,
 				'POST',
 				user
 			);

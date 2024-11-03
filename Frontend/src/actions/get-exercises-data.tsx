@@ -12,7 +12,7 @@ export const fetchExercisesData: any = createAsyncThunk(
 	async ({ searchName = '', page = 1, limit = 8 }: SearchParams) => {
 		try {
 			const response = await request(
-				`http://localhost:4000/exercises?&page=${page}&limit=${limit}&search=${searchName}`,
+				`/exercises?&page=${page}&limit=${limit}&search=${searchName}`,
 			)
 			return response;
 		} catch (error) {

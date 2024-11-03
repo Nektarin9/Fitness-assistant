@@ -7,7 +7,7 @@ export const postClient: any = createAsyncThunk(
 	async (clientInfo: Person) => {
 		try {
 			const response = await request(
-				'http://localhost:4000/clients',
+				'/clients',
 				'POST',
 				clientInfo,
 			);

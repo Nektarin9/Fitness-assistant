@@ -7,7 +7,7 @@ export const addExercisesData: any = createAsyncThunk(
 	async (exercise: ExercisesData) => {
 		try {
 			const response = await request(
-				'http://localhost:4000/exercises',
+				'/exercises',
 				'POST',
 				exercise,
 			);
