@@ -1,4 +1,4 @@
-import {  Route, Routes } from 'react-router-dom';
+import { Route, Routes } from 'react-router-dom';
 import { CustomerCard } from '../pages/customer-card/customer-card';
 import {
 	Authorization,
@@ -8,19 +8,14 @@ import {
 	ClientInfo,
 	ListWorkouts,
 } from '../pages';
-import { useSelector } from 'react-redux';
-import { selectAuthenticated } from '../selectors/select-authenticated';
+import {  UserType } from '../reducers/users-slice';
 
-export const Routing = () => {
-	const isAuthenticated = useSelector(selectAuthenticated);
-	!isAuthenticated.error && sessionStorage.setItem('AUTHORIZATION', JSON.stringify(isAuthenticated));
-	
+export const Routing = ({isAuthenticated} :{isAuthenticated: UserType}) => {
 	return (
 		<Routes>
-
 			<Route
 				path="/"
-				element={sessionStorage.getItem('AUTHORIZATION') ? <Main /> : <Authorization />}
+				element={!isAuthenticated.error ? <Main /> : <Authorization />}
 			>
 				<Route index element={<CustomerCard />} />
 				<Route path="addClient" element={<Addition />} />

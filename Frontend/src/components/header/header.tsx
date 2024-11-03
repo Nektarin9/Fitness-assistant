@@ -1,36 +1,30 @@
-import { Input } from '../input/input';
-import { useDispatch } from 'react-redux';
-import { inputSearch } from '../../reducers/app-slice';
-import { useCallback } from 'react';
-import { debounce } from '../../utils';
-import { fetchExercisesData } from '../../actions';
-import styled from 'styled-components';
+import { useDispatch, useSelector } from 'react-redux';
 
+import styled from 'styled-components';
+import { selectAuthenticated } from '../../selectors/select-authenticated';
+import { Button } from '../button/button';
+import { logoutUser } from '../../actions';
 
 const HeaderContainer = ({ className }: { className?: string }) => {
 	const dispatch = useDispatch();
-	// eslint-disable-next-line react-hooks/exhaustive-deps
-	const debouncedOnChange = useCallback(
-		debounce((search) => {
-			dispatch(fetchExercisesData({ searchName: search }));
-		}, 1000),
-		[],
-	);
+	const user = useSelector(selectAuthenticated);
+	const logout = () => {
+		dispatch(logoutUser());
+		sessionStorage.removeItem('AUTHORIZATION');
+		location.reload();
+	};
 	return (
 		<header className={className}>
 			<div className="container">
-				<Input
-					onChange={({ target }) => {
-						dispatch(inputSearch(target.value));
-						debouncedOnChange(target.value);
-					}}
-					type="text"
-					placeholder="Начните поиск"
-					maxLength={35}
-				/>
-				<div className="searchIcon">
-					<i className="fa fa-neuter" aria-hidden="true"></i>
-				</div>
+				<span className="login">{user.user?.login}</span>
+				<Button
+					onClick={logout}
+					backgroundColor="#791d1d"
+					backgroundColorHover="#3f0808"
+					width="80px"
+				>
+					Выйти
+				</Button>
 			</div>
 		</header>
 	);
@@ -38,30 +32,21 @@ const HeaderContainer = ({ className }: { className?: string }) => {
 
 export const Header = styled(HeaderContainer)`
 	display: flex;
-	justify-content: center;
+	position: fixed;
+	z-index: 10;
+	justify-content: end;
 	align-items: center;
 	width: 100%;
 	height: 60px;
 	background-color: #d8d8d8;
-	input {
-		width: 500px;
-		padding: 5px 10px 5px 10px;
-		font-size: 18px;
-		border-radius: 5px;
-		border: none;
-	}
 	.container {
 		position: relative;
+		display: flex;
+		align-items: center;
+		margin-right: 20px;
 	}
-	.searchIcon {
-		position: absolute;
-		top: 0;
-		right: 20px;
-		font-size: 24px;
-		color: rgb(110, 110, 110);
-		transform: rotate(-45deg);
-		background: none;
-		border: none;
-		transition: 0.15s;
+	.login {
+		margin-right: 10px;
+		font-size: 18px;
 	}
 `;

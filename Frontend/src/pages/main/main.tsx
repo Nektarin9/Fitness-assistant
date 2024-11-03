@@ -49,6 +49,7 @@ export const Main = styled(MainContainer)`
 	justify-content: center;
 	.leftPanel {
 		position: fixed;
+		z-index: 15;
 		padding-top: 50px;
 		left: 0;
 		bottom: 0;

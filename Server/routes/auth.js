@@ -25,16 +25,20 @@ router.post("/register", async (req, res) => {
         res.cookie("token", token, { httpOnly: true })
 
         res.send({
-            error: null,
+            error: false,
             user: mapUser(user)
         });
     } catch (e) {
-        res.send({ error: "Проверьте учетные данные" });
+        res.send({ error: true,
+          massage: "Проверьте учетные данные"
+         });
     }
 });
   
   router.post("/logout", (req, res) => {
-    res.cookie("token", "", { httpOnly: true }).send({});
+    res.cookie("token", "", { httpOnly: true }).send({
+      error: true
+    });
   });
 
   module.exports = router

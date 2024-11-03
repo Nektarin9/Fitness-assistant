@@ -50,6 +50,7 @@ export const CustomerCard = styled(CustomerCardContainer)`
 	display: flex;
 	justify-content: center;
 	flex-wrap: wrap;
+	margin-top: 60px;
 	.card {
 		width: 250px;
 		height: 250px;
