@@ -1,17 +1,20 @@
 import { useDispatch, useSelector } from 'react-redux';
-
-import styled from 'styled-components';
-import { selectAuthenticated } from '../../selectors/select-authenticated';
+import { selectAuthenticated } from '../../redux/selectors';
 import { Button } from '../button/button';
-import { logoutUser } from '../../actions';
+import { logoutUser } from '../../redux/api/actions';
+import styled from 'styled-components';
+import { useNavigate } from 'react-router-dom';
 
 const HeaderContainer = ({ className }: { className?: string }) => {
 	const dispatch = useDispatch();
 	const user = useSelector(selectAuthenticated);
+	const navigate = useNavigate();
 	const logout = () => {
 		dispatch(logoutUser());
 		sessionStorage.removeItem('AUTHORIZATION');
+		navigate('/');
 		location.reload();
+
 	};
 	return (
 		<header className={className}>
@@ -33,20 +36,25 @@ const HeaderContainer = ({ className }: { className?: string }) => {
 export const Header = styled(HeaderContainer)`
 	display: flex;
 	position: fixed;
-	z-index: 10;
+	z-index: 20;
 	justify-content: end;
 	align-items: center;
 	width: 100%;
 	height: 60px;
-	background-color: #d8d8d8;
+	background-color: rgb(26, 28, 34);
+	border-bottom: 1px solid rgba(222, 222, 222, 0.627);
 	.container {
 		position: relative;
 		display: flex;
 		align-items: center;
-		margin-right: 20px;
+		right: 20px;
 	}
 	.login {
 		margin-right: 10px;
 		font-size: 18px;
+		color: white;
+	}
+	@media (max-width: 600px) {
+		height: 45px;
 	}
 `;

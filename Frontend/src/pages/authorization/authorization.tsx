@@ -1,8 +1,9 @@
 import { useState } from 'react';
 import { useDispatch } from 'react-redux';
-import { authUser, registrationUser } from '../../actions';
-import styled from 'styled-components';
+import { authUser, registrationUser } from '../../redux/api/actions';
 import { useNavigate } from 'react-router-dom';
+import { Button } from '../../components';
+import styled from 'styled-components';
 
 const AuthorizationContainer = ({ className }: { className?: string }) => {
 	const dispatch = useDispatch();
@@ -17,31 +18,35 @@ const AuthorizationContainer = ({ className }: { className?: string }) => {
 				<div>
 					<input
 						value={login}
-						placeholder='Логин'
+						placeholder="Логин"
 						onChange={({ target }) => setLogin(target.value)}
 						type="text"
 					/>
 					<input
 						value={password}
-						placeholder='Пароль'
+						placeholder="Пароль"
 						onChange={({ target }) => setPassword(target.value)}
 						type="text"
 					/>
-					<button
-						onClick={() => {
-							dispatch(authUser({ login, password }));
-							  navigate('/');
-						}}
-					>
-						Войти
-					</button>
-					<button
+					<div className='button-container'>
+						<Button
+							backgroundColor="green"
+							onClick={() => {
+								dispatch(authUser({ login, password }));
+								navigate('/');
+							}}
+						>
+							Войти
+						</Button>
+					</div>
+
+					{/*<button
 						onClick={() => {
 							dispatch(registrationUser({ login, password }));
 						}}
 					>
 						Регистрация
-					</button>
+					</button>*/}
 				</div>
 			</div>
 		</div>
@@ -53,6 +58,7 @@ export const Authorization = styled(AuthorizationContainer)`
 	height: 100vh;
 	justify-content: center;
 	align-items: center;
+
 	h1 {
 		color: #ffffff;
 		font-size: 24px;
@@ -76,24 +82,10 @@ export const Authorization = styled(AuthorizationContainer)`
 		transform: 0.3s;
 		transition: 0.3s;
 	}
+	.button-container {
+		text-align:center;
+	}
 	input:focus {
-		background-color: #e0e0e0;
-		transform: 0.3s;
-		transition: 0.3s;
-	}
-
-	button {
-		cursor: pointer;
-		width: 100%;
-		height: 40px;
-		margin-top: 15px;
-		font-size: 18px;
-		border-radius: 5px;
-		background-color: #ffffff;
-		transform: 0.3s;
-		transition: 0.3s;
-	}
-	button:hover {
 		background-color: #e0e0e0;
 		transform: 0.3s;
 		transition: 0.3s;

@@ -2,12 +2,12 @@
 import { ClientForm } from './client-form/client-form';
 import { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { postClient, updateClient } from '../../actions';
+import { postClient, updateClient } from '../../redux/api/actions';
 import { useNavigate, useParams } from 'react-router-dom';
-import { selectClients } from '../../selectors';
+import { selectClients } from '../../redux/selectors';
 import { findClient } from '../../utils';
 import { useClearMessage } from '../../hooks';
-import { message } from '../../reducers/app-slice';
+import { message } from '../../redux/app-slice';
 import { DEFAULT_URL } from '../../constants';
 import styled from 'styled-components';
 

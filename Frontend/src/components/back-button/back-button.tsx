@@ -12,6 +12,7 @@ const BackButtonContainer = ({ className }: { className?: string }) => {
 
 export const BackButton = styled(BackButtonContainer)`
 	font-size: 45px;
+	z-index: 9999;
 	color: rgba(21, 21, 21, 0.582);
 	background: none;
 	cursor: pointer;

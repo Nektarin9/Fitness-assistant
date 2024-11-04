@@ -1,7 +1,7 @@
 import { useDispatch, useSelector } from 'react-redux';
 import { Button } from '../../../button/button';
-import { addTrainingTable, deleteTrainingTable } from '../../../../actions';
-import { selectClient } from '../../../../selectors';
+import { addTrainingTable, deleteTrainingTable } from '../../../../redux/api/actions';
+import { selectClient } from '../../../../redux/selectors';
 import styled from 'styled-components';
 
 interface ControlPanelContainerProps {
@@ -45,6 +45,7 @@ const ControlPanelContainer: React.FC<ControlPanelContainerProps> = ({
 					aria-hidden="true"
 				></i>
 			</div>
+
 			<Button
 				backgroundColor="#820000"
 				width="30px"
@@ -52,7 +53,9 @@ const ControlPanelContainer: React.FC<ControlPanelContainerProps> = ({
 				backgroundColorHover="red"
 				onClick={() => deleteTrening(id, trainingId)}
 			>
-				✖
+				<p className="minus">
+					<i className="fa fa-times" aria-hidden="true"></i>
+				</p>
 			</Button>
 		</div>
 	);
@@ -69,5 +72,13 @@ export const ControlPanel = styled(ControlPanelContainer)`
 	i {
 		cursor: pointer;
 		margin: 0 5px 0 5px;
+	}
+	.delete {
+		color: white;
+	}
+	.minus {
+		display: flex;
+		justify-content: center;
+		align-items: center;
 	}
 `;

@@ -8,9 +8,9 @@ import {
 	ClientInfo,
 	ListWorkouts,
 } from '../pages';
-import {  UserType } from '../reducers/users-slice';
+import { UserType } from '../redux/users-slice';
 
-export const Routing = ({isAuthenticated} :{isAuthenticated: UserType}) => {
+export const Routing = ({ isAuthenticated }: { isAuthenticated: UserType }) => {
 	return (
 		<Routes>
 			<Route

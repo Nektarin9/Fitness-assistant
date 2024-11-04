@@ -1,10 +1,10 @@
 import { Button, Pagination } from '../../../components';
 import { useDispatch, useSelector } from 'react-redux';
-import { selectExercisesData } from '../../../selectors';
 import { useEffect, useState } from 'react';
-import { deleteExercisesData, fetchExercisesData } from '../../../actions';
-import { message } from '../../../reducers/app-slice';
+import { deleteExercisesData, fetchExercisesData } from '../../../redux/api/actions';
+import { message } from '../../../redux/app-slice';
 import { useClearMessage } from '../../../hooks';
+import { selectExercisesData } from '../../../redux/selectors';
 import styled from 'styled-components';
 
 const ExercisesContainer = ({
@@ -43,8 +43,8 @@ const ExercisesContainer = ({
 						<span>{exerciseName}</span>
 						<span>{category}</span>
 						<Button
-							width="40px"
-							height="40px"
+							width="25px"
+							height="25px"
 							backgroundColor="#820000"
 							backgroundColorHover="red"
 							onClick={() => {
@@ -65,11 +65,9 @@ const ExercisesContainer = ({
 };
 
 export const Exercises = styled(ExercisesContainer)`
-	position: relative;
 	margin-top: 20px;
-	padding: 5px 5px 50px 5px;
+	padding: 5px 5px 20px 5px;
 	width: 460px;
-	min-height: 600px;
 	border: 1px solid #bfbebe8e;
 	border-radius: 10px;
 	.exercises {
@@ -89,13 +87,34 @@ export const Exercises = styled(ExercisesContainer)`
 	}
 	.minus {
 		position: relative;
-		font-size: 25px;
+		font-size: 14px;
 		top: -1px;
-		left: 1px;
+		left: 0px;
 	}
 	.pagination {
-		position: absolute;
-		bottom: 0;
-		left: 55px;
+		display: flex;
+		align-items: end;
+		justify-content: center;
+	}
+	@media (max-width: 600px) {
+		width: 100%;
+		min-height: 300px;
+		margin-top: 10px;
+		padding: 3px 3px 10px 3px;
+		.exercises {
+			font-size: 14px;
+			margin: 5px 0 5px 0;
+			padding: 2px;
+		}
+		span {
+			width: 100%;
+		}
+		.minus {
+			display: flex;
+			justify-content: center;
+			font-size: 14px;
+			top: -1px;
+			left: 0px;
+		}
 	}
 `;

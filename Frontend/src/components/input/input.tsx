@@ -1,7 +1,7 @@
 import { useEffect, useRef, useState } from 'react';
 import { SearchSuggestions } from '../search-suggestions/search-suggestions';
 import { useDispatch } from 'react-redux';
-import { clearExercisesData } from '../../reducers/training-data-slice';
+import { clearExercisesData } from '../../redux/training-data-slice';
 import { useParams } from 'react-router-dom';
 import styled from 'styled-components';
 
@@ -91,5 +91,10 @@ export const Input = styled(InputContainer)`
 		background-color: #e9e9e9d4;
 		transform: 0.3s;
 		transition: 0.3s;
+	}
+	@media (max-width: 600px) {
+		.input-exercise {
+			font-size: 16px;
+		}
 	}
 `;

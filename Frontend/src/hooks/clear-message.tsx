@@ -1,5 +1,5 @@
 import { Dispatch, UnknownAction } from 'redux';
-import { clearMessage } from '../reducers/app-slice';
+import { clearMessage } from '../redux/app-slice';
 
 export const useClearMessage = (dispatch: Dispatch<UnknownAction>) => {
 	setTimeout(() => {

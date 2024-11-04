@@ -1,9 +1,9 @@
 import { Button, ExerciseChart } from '../../../components';
 import { useDispatch, useSelector } from 'react-redux';
-import { selectClient } from '../../../selectors';
+import { selectClient } from '../../../redux/selectors';
 import { useParams } from 'react-router-dom';
 import { useEffect } from 'react';
-import { fetchClient, postTrainingTable } from '../../../actions';
+import { fetchClient, postTrainingTable } from '../../../redux/api/actions';
 import styled from 'styled-components';
 
 const ListWorkoutsContainer = ({ className }: { className?: string }) => {
@@ -44,7 +44,6 @@ const ListWorkoutsContainer = ({ className }: { className?: string }) => {
 };
 
 export const ListWorkouts = styled(ListWorkoutsContainer)`
-	margin: 150px auto;
 	font-size: 18px;
 	margin-bottom: 10px;
 	padding: 15px;

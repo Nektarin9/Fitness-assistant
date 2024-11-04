@@ -1,11 +1,11 @@
 import { useCallback, useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { fetchExercisesData } from '../../actions';
-import { selectExercisesData } from '../../selectors';
-import styled from 'styled-components';
-import { exerciseInput } from '../../reducers/client-slice';
+import { fetchExercisesData } from '../../redux/api/actions';
+import { selectExercisesData } from '../../redux/selectors';
+import { exerciseInput } from '../../redux/client-slice';
 import { debounce } from '../../utils';
-import { clearExercisesData } from '../../reducers/training-data-slice';
+import { clearExercisesData } from '../../redux/training-data-slice';
+import styled from 'styled-components';
 
 interface SearchSuggestionProps {
 	className?: string;

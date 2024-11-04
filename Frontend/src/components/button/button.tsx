@@ -7,7 +7,7 @@ interface ButtonContainerProps {
 	backgroundColor?: string;
 	backgroundColorHover?: string;
 	onClick?: React.MouseEventHandler<HTMLButtonElement>;
-	children?: string |  React.ReactNode
+	children?: string | React.ReactNode;
 }
 
 const ButtonContainer = ({ className, children, onClick }: ButtonContainerProps) => {
@@ -19,6 +19,7 @@ const ButtonContainer = ({ className, children, onClick }: ButtonContainerProps)
 };
 
 export const Button = styled(ButtonContainer)`
+	position: relative;
 	width: ${({ width = '150px' }) => width};
 	height: ${({ height = '35px' }) => height};
 	background-color: ${({ backgroundColor = '#00a462' }) => backgroundColor};

@@ -8,7 +8,7 @@ import {
 	addExerciseTable,
 	descriptionInput,
 	exerciseInput,
-} from '../../reducers/client-slice';
+} from '../../redux/client-slice';
 import styled from 'styled-components';
 
 const ExerciseChartConteiner = ({
@@ -57,7 +57,7 @@ const ExerciseChartConteiner = ({
 									}
 									background="transparent"
 									border={edit ? 'none' : '1px solid #000000'}
-									width="150px"
+									width="100%"
 									type="text"
 								/>
 							</td>
@@ -76,7 +76,7 @@ const ExerciseChartConteiner = ({
 									}
 									background="transparent"
 									border={edit ? 'none' : '1px solid #000000'}
-									width="150px"
+									width="100%"
 									type="text"
 								/>
 							</td>
@@ -120,5 +120,14 @@ export const ExerciseChart = styled(ExerciseChartConteiner)`
 		display: flex;
 		justify-content: center;
 		gap: 20px;
+	}
+	@media (max-width: 600px) {
+		.client-info {
+			margin-top: 50px;
+		}
+		h2 {
+			margin: 10px auto;
+			font-size: 16px;
+		}
 	}
 `;

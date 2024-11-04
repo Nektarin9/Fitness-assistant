@@ -17,7 +17,6 @@ const ClientInfoContainer = ({ className }: { className?: string }) => {
 };
 
 export const ClientInfo = styled(ClientInfoContainer)`
-	margin: 150px auto;
 	.backButton {
 		position: absolute;
 		left: 115px;
@@ -29,5 +28,13 @@ export const ClientInfo = styled(ClientInfoContainer)`
 		cursor: pointer;
 		right: 50px;
 		bottom: 100px;
+	}
+	@media (max-width: 600px) {
+		margin: auto;
+		.backButton {
+			position: fixed;
+			left: 45px;
+			top: 50px;
+		}
 	}
 `;

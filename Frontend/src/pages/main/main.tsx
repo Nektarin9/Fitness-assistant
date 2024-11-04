@@ -2,7 +2,7 @@ import { useEffect } from 'react';
 import { BackButton, Header } from '../../components';
 import { NavLink, Outlet } from 'react-router-dom';
 import { useDispatch } from 'react-redux';
-import { clearClient } from '../../reducers/client-slice';
+import { clearClient } from '../../redux/client-slice';
 import styled from 'styled-components';
 
 const MainContainer = ({
@@ -18,7 +18,6 @@ const MainContainer = ({
 
 	return (
 		<>
-			<Header />
 			<div className={className}>
 				<div className="leftPanel">
 					<NavLink to={'/'} className="addClitnt">
@@ -51,10 +50,10 @@ export const Main = styled(MainContainer)`
 		position: fixed;
 		z-index: 15;
 		padding-top: 50px;
+		top: 0;
 		left: 0;
 		bottom: 0;
 		width: 80px;
-		height: 100%;
 		background-color: rgb(26, 28, 34);
 	}
 	.rightConteiner {
@@ -77,6 +76,25 @@ export const Main = styled(MainContainer)`
 	.backButton {
 		position: absolute;
 		left: 115px;
-		top: 7px;
+		top: 60px;
+	}
+	@media (max-width: 600px) {
+		.leftPanel {
+			width: 45px;
+		}
+		.fa-2x {
+			font-size: 25px;
+		}
+		.backButton {
+			position: fixed;
+			left: 45px;
+			top: 50px;
+		}
+		.rightConteiner {
+			max-width: 600px;
+			display: flex;
+			justify-content: center;
+			margin: 20px 0 0 45px;
+		}
 	}
 `;

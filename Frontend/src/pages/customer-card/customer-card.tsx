@@ -1,11 +1,10 @@
 import { useDispatch, useSelector } from 'react-redux';
 import { Link } from 'react-router-dom';
-import { selectClients } from '../../selectors';
+import { selectClients } from '../../redux/selectors';
 import { useEffect } from 'react';
 import { Button } from '../../components';
-import { deleteClient, fetchClients } from '../../actions';
+import { deleteClient, fetchClients } from '../../redux/api/actions';
 import styled from 'styled-components';
-
 
 const CustomerCardContainer = ({ className }: { className?: string }) => {
 	const dispatch = useDispatch();
@@ -29,7 +28,7 @@ const CustomerCardContainer = ({ className }: { className?: string }) => {
 					</Link>
 					<div className="btn-container">
 						<Button
-							width="100px;"
+							width="120px;"
 							backgroundColor={'#820000;'}
 							backgroundColorHover={'#cf0101'}
 							onClick={() => removeCard(id)}
@@ -37,7 +36,7 @@ const CustomerCardContainer = ({ className }: { className?: string }) => {
 							Удалить
 						</Button>
 						<Link to={`/cardEditing/${id}`}>
-							<Button width="100px;">Изменить</Button>
+							<Button width="120px;">Изменить</Button>
 						</Link>
 					</div>
 				</div>

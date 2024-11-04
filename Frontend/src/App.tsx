@@ -1,11 +1,10 @@
-import { Message } from './components';
-import { selectMessage } from './selectors';
+import { Header, Message } from './components';
 import { useDispatch, useSelector } from 'react-redux';
 import { Routing } from './routing/routing';
-import styled from 'styled-components';
-import { selectAuthenticated } from './selectors/select-authenticated';
 import { useEffect } from 'react';
-import { saveUser } from './reducers/users-slice';
+import { saveUser } from './redux/users-slice';
+import { selectMessage, selectAuthenticated } from './redux/selectors';
+import styled from 'styled-components';
 
 const AppConteiner = ({ className }: { className?: string }) => {
 	const message = useSelector(selectMessage);
@@ -24,15 +23,17 @@ const AppConteiner = ({ className }: { className?: string }) => {
 	}, []);
 	return (
 		<div className={className}>
+			{!isAuthenticated.error && <Header />}
+
 			{message && <Message>{message}</Message>}
-			<Routing isAuthenticated={isAuthenticated}/>
+			<Routing isAuthenticated={isAuthenticated} />
 		</div>
 	);
 };
 
 export const App = styled(AppConteiner)`
 	display: block;
-	margin: 0 auto;
+	margin: 0;
 
 	@media (max-width: 600px) {
 		max-width: 580px;
