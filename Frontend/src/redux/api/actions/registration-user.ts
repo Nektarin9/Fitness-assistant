@@ -1,6 +1,6 @@
 import { createAsyncThunk } from '@reduxjs/toolkit';
-import { request } from '../../../utils';
 import { PATCH_URL } from '../patch';
+import axios from 'axios';
 
 interface UserType {
 	login: string;
@@ -11,8 +11,8 @@ export const registrationUser: any = createAsyncThunk(
 	'users/registrationUser',
 	async (user: UserType) => {
 		try {
-			const response = await request(PATCH_URL.REGISTRATION_USER, 'POST', user);
-			return response;
+			const response = await axios.post(PATCH_URL.REGISTRATION_USER, user);
+			return response.data;
 		} catch (error) {
 			console.error(error);
 			throw error;

@@ -1,7 +1,7 @@
 import { createAsyncThunk } from '@reduxjs/toolkit';
-import { request } from '../../../utils';
 import { TrainingProgram } from '../../../interface';
 import { PATCH_URL } from '../patch';
+import axios from 'axios';
 
 interface data {
 	id?: string | number;
@@ -12,7 +12,7 @@ export const addTrainingTable: any = createAsyncThunk(
 	'addTrainingTable',
 	async (data: data) => {
 		try {
-			await request(`${PATCH_URL.CLIENTS_SAVE_TABLE}/${data.id}`, 'PATCH', {
+			await axios.patch(`${PATCH_URL.CLIENTS_SAVE_TABLE}/${data.id}`, {
 				...data.training,
 			});
 			return data.training?.id;

@@ -1,6 +1,6 @@
 import { createAsyncThunk } from '@reduxjs/toolkit';
-import { request } from '../../../utils';
 import { PATCH_URL } from '../patch';
+import axios from 'axios';
 
 export const deleteTrainingTable: any = createAsyncThunk(
 	'clients/deleteTrainingTable',
@@ -12,7 +12,7 @@ export const deleteTrainingTable: any = createAsyncThunk(
 		trainingId?: number | string;
 	}) => {
 		try {
-			await request(PATCH_URL.CLIENTS_TRAINING, 'DELETE', {
+			await axios.post(PATCH_URL.CLIENTS_TRAINING, {
 				id,
 				trainingId,
 			});

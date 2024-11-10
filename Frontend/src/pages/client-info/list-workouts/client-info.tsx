@@ -1,4 +1,4 @@
-import { BackButton } from '../../components';
+import { BackButton } from '../../../components';
 import { Outlet } from 'react-router-dom';
 import styled from 'styled-components';
 
@@ -6,10 +6,7 @@ const ClientInfoContainer = ({ className }: { className?: string }) => {
 	return (
 		<>
 			<div className={className}>
-				<div className="backButton">
-					<BackButton />
-				</div>
-
+				<BackButton />
 				<Outlet />
 			</div>
 		</>
@@ -17,12 +14,6 @@ const ClientInfoContainer = ({ className }: { className?: string }) => {
 };
 
 export const ClientInfo = styled(ClientInfoContainer)`
-	.backButton {
-		position: absolute;
-		left: 115px;
-		top: 67px;
-	}
-
 	.add-table {
 		position: fixed;
 		cursor: pointer;
@@ -30,7 +21,7 @@ export const ClientInfo = styled(ClientInfoContainer)`
 		bottom: 100px;
 	}
 	@media (max-width: 600px) {
-		margin: auto;
+		margin-bottom: 100px;
 		.backButton {
 			position: fixed;
 			left: 45px;

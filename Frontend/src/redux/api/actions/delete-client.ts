@@ -1,10 +1,10 @@
-import { request } from '../../../utils';
 import { createAsyncThunk } from '@reduxjs/toolkit';
 import { PATCH_URL } from '../patch';
+import axios from 'axios';
 
 export const deleteClient: any = createAsyncThunk('clients/deleteClient', async (id) => {
 	try {
-		await request(`${PATCH_URL.CLIENTS}/${id}`, 'DELETE');
+		await axios.delete(`${PATCH_URL.CLIENTS}/${id}`);
 		return id;
 	} catch (error) {
 		console.error(error);

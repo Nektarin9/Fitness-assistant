@@ -2,21 +2,22 @@
 import { ClientForm } from './client-form/client-form';
 import { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { postClient, updateClient } from '../../redux/api/actions';
+import { fetchClients, postClient, updateClient } from '../../redux/api/actions';
 import { useNavigate, useParams } from 'react-router-dom';
 import { selectClients } from '../../redux/selectors';
 import { findClient } from '../../utils';
 import { useClearMessage } from '../../hooks';
 import { message } from '../../redux/app-slice';
-import { DEFAULT_URL } from '../../constants';
 import styled from 'styled-components';
 
 const AdditionContainer = ({ className }: { className?: string }) => {
 	// Создаем один объект состояния для всех полей
-	const [photoUrl, setPhotoUrl] = useState('');
-	const [clientName, setClientName] = useState('');
-	const [clientPhone, setClientPhone] = useState('');
-	const [clientAge, setClientAge] = useState('');
+	const [photoFile, setPhotoFile] = useState<File | null>(null);
+	const [clientName, setClientName] = useState<string>('');
+	const [clientPhone, setClientPhone] = useState<string>('');
+	const [clientAge, setClientAge] = useState<string>('');
+	const [photoUrl, setPhotoUrl] = useState<string>('');
+	const [defaultImg, setDefaultImg] = useState<string>('');
 	const dispatch = useDispatch();
 	const navigate = useNavigate();
 	const params = useParams();
@@ -25,45 +26,46 @@ const AdditionContainer = ({ className }: { className?: string }) => {
 	const client = findClient(clients, params.id);
 
 	const handleAdd = async () => {
-		await dispatch(
-			postClient({
-				image: photoUrl,
-				name: clientName,
-				phone: clientPhone,
-				age: clientAge,
-				trainingProgram: [
-					{
-						table: [
-							{
-								exercise: 'Упражнение',
-								description: 'Описание',
-							},
-						],
-					},
-				],
-			}),
-		);
+		const formData = new FormData();
+		formData.append('defaultImg', defaultImg);
+		formData.append('imageFile', photoFile || ''); // Добавьте файл изображения
+		formData.append('name', clientName);
+		formData.append('phone', clientPhone);
+		formData.append('age', clientAge);
+		formData.append(
+			'trainingProgram',
+			JSON.stringify([
+				{ table: [{ exercise: 'Упражнение', description: 'Описание' }] },
+			]),
+		); // Преобразуйте массив в строку JSON
+
+		await dispatch(postClient(formData));
+
 		dispatch(message('Карточка добавлена'));
 		clearMessage(dispatch);
 		navigate('/');
 	};
 	const handleUpdate = async () => {
-		await dispatch(
-			updateClient({
-				id: params.id,
-				image: photoUrl,
-				name: clientName,
-				phone: clientPhone,
-				age: clientAge,
-			}),
-		);
+		const formData = new FormData();
+		formData.append('defaultImg', defaultImg);
+		formData.append('imageFile', photoFile || ''); // Добавьте файл изображения
+		formData.append('name', clientName);
+		formData.append('phone', clientPhone);
+		formData.append('age', clientAge);
+		formData.append('id', params.id || '');
+
+		await dispatch(updateClient(formData));
+
 		dispatch(message('Карточка изменена'));
 		clearMessage(dispatch);
 		navigate('/');
 	};
 	useEffect(() => {
+		dispatch(fetchClients());
+	}, []);
+	useEffect(() => {
 		const { image, name, phone, age } = client;
-		setPhotoUrl(image ? image : DEFAULT_URL);
+		setPhotoUrl(image ? image : 'http://90.156.169.143:4000/uploads/default.jpg');
 		setClientName(name ? name : '');
 		setClientPhone(phone ? phone : '');
 		setClientAge(age ? age : '');
@@ -72,8 +74,8 @@ const AdditionContainer = ({ className }: { className?: string }) => {
 	return (
 		<div className={className}>
 			<ClientForm
-				setPhotoUrl={setPhotoUrl}
-				photoUrl={photoUrl}
+				setPhotoFile={setPhotoFile}
+				photoFile={photoFile}
 				setClientName={setClientName}
 				clientName={clientName}
 				setClientPhone={setClientPhone}
@@ -81,6 +83,9 @@ const AdditionContainer = ({ className }: { className?: string }) => {
 				setClientAge={setClientAge}
 				clientAge={clientAge}
 				btnOnclick={params.id ? handleUpdate : handleAdd}
+				setPhotoUrl={setPhotoUrl}
+				photoUrl={photoUrl}
+				setDefaultImg={setDefaultImg}
 			>
 				{params.id ? 'Изменить' : 'Добавить'}
 			</ClientForm>

@@ -18,7 +18,7 @@ const HeaderContainer = ({ className }: { className?: string }) => {
 	};
 	return (
 		<header className={className}>
-			<div className="container">
+			<div className="container-header">
 				<span className="login">{user.user?.login}</span>
 				<Button
 					onClick={logout}
@@ -36,6 +36,7 @@ const HeaderContainer = ({ className }: { className?: string }) => {
 export const Header = styled(HeaderContainer)`
 	display: flex;
 	position: fixed;
+	top: 0;
 	z-index: 20;
 	justify-content: end;
 	align-items: center;
@@ -43,7 +44,7 @@ export const Header = styled(HeaderContainer)`
 	height: 60px;
 	background-color: rgb(26, 28, 34);
 	border-bottom: 1px solid rgba(222, 222, 222, 0.627);
-	.container {
+	.container-header {
 		position: relative;
 		display: flex;
 		align-items: center;

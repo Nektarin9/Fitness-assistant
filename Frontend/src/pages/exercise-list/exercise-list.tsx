@@ -18,7 +18,7 @@ const ExerciseListContainer = ({ className }: { className?: string }) => {
 	const debouncedOnChange = useCallback(
 		debounce((search) => {
 			dispatch(fetchExercisesData({ searchName: search }));
-		}, 1000),
+		}, 500),
 		[],
 	);
 
@@ -32,19 +32,16 @@ const ExerciseListContainer = ({ className }: { className?: string }) => {
 	};
 	return (
 		<div className={className}>
-			<Input
-				onChange={({ target }) => {
-					dispatch(inputSearch(target.value));
-					debouncedOnChange(target.value);
-				}}
-				type="text"
-				width="220px"
-				placeholder="Начните поиск"
-				maxLength={35}
-			/>
-			<div className="searchIcon">
-				<i className="fa fa-neuter" aria-hidden="true"></i>
-			</div>
+				<Input
+					onChange={({ target }) => {
+						dispatch(inputSearch(target.value));
+						debouncedOnChange(target.value);
+					}}
+					type="text"
+					width="220px"
+					placeholder="Начните поиск"
+					maxLength={35}
+				/>
 			<div className="conteiner">
 				<div>
 					<p className="text-add">Выберите категорию</p>
@@ -87,22 +84,15 @@ export const ExerciseList = styled(ExerciseListContainer)`
 		font-size: 18px;
 		margin-bottom: 10px;
 	}
-	.searchIcon {
-		position: absolute;
-		top: -2px;
-		right: 125px;
-		font-size: 24px;
-		color: rgb(110, 110, 110);
-		transform: rotate(-45deg);
-		background: none;
-		border: none;
-		transition: 0.15s;
-	}
+
 	@media (max-width: 600px) {
 		.conteiner {
 			max-width: 400px;
 			gap: 10px;
 			margin: 10px auto;
+		}
+		.searchIcon {
+			top: 0;
 		}
 	}
 `;

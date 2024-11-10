@@ -1,4 +1,4 @@
-import { Button, Pagination } from '../../../components';
+import { Button, Loader, Pagination } from '../../../components';
 import { useDispatch, useSelector } from 'react-redux';
 import { useEffect, useState } from 'react';
 import { deleteExercisesData, fetchExercisesData } from '../../../redux/api/actions';
@@ -34,8 +34,7 @@ const ExercisesContainer = ({
 			}
 		}
 	};
-
-	return (
+	return data.exercises?.length ? (
 		<div className={className}>
 			{data.exercises &&
 				data.exercises.map(({ id, exerciseName, category }) => (
@@ -43,7 +42,7 @@ const ExercisesContainer = ({
 						<span>{exerciseName}</span>
 						<span>{category}</span>
 						<Button
-							width="25px"
+							width="60px"
 							height="25px"
 							backgroundColor="#820000"
 							backgroundColorHover="red"
@@ -61,6 +60,8 @@ const ExercisesContainer = ({
 				<Pagination page={page} setPage={setPage} lastPage={data.total} />
 			</div>
 		</div>
+	) : (
+		<Loader />
 	);
 };
 
@@ -87,9 +88,9 @@ export const Exercises = styled(ExercisesContainer)`
 	}
 	.minus {
 		position: relative;
-		font-size: 14px;
-		top: -1px;
-		left: 0px;
+		font-size: 18px;
+		top: 0;
+		left: 0;
 	}
 	.pagination {
 		display: flex;
@@ -112,9 +113,7 @@ export const Exercises = styled(ExercisesContainer)`
 		.minus {
 			display: flex;
 			justify-content: center;
-			font-size: 14px;
-			top: -1px;
-			left: 0px;
+			font-size: 16px;
 		}
 	}
 `;

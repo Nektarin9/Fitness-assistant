@@ -1,4 +1,5 @@
 const Clients = require("../models/clients");
+const { removeImage } = require("../helpers/remove-image");
 
 async function getClients() {
   const clients = await Clients.find();
@@ -16,17 +17,20 @@ async function postClient({ image, name, phone, age, trainingProgram }) {
     name,
     phone,
     age,
-    training_program: trainingProgram,
+    training_program: JSON.parse(trainingProgram),
   });
   return newClient;
 }
 
 async function deleteClient(params) {
+  await removeImage(params);
   await Clients.deleteOne({ _id: params });
 }
 
-async function updateClient({ image, name, phone, age }, params) {
+async function updateClient({ image, name, phone, age, params }) {
   const updatedClientt = { image, name, phone, age };
+  await removeImage(params);
+
   await Clients.updateOne(
     { _id: params }, // Используем _id вместо id
     { $set: updatedClientt }

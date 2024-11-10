@@ -1,14 +1,13 @@
 import { createAsyncThunk } from '@reduxjs/toolkit';
-import { request } from '../../../utils';
 import { PATCH_URL } from '../patch';
+import axios from 'axios';
 
 export const postTrainingTable: any = createAsyncThunk(
 	'clients/postTrainingTable',
 	async (id: number | string) => {
 		try {
-			const response = await request(
+			const response = await axios.post(
 				`${PATCH_URL.CLIENTS_TRAINING}/${id}`,
-				'POST',
 				{
 					table: [
 						{

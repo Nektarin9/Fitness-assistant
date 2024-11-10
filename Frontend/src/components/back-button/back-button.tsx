@@ -11,6 +11,9 @@ const BackButtonContainer = ({ className }: { className?: string }) => {
 };
 
 export const BackButton = styled(BackButtonContainer)`
+	position: fixed;
+	left: 115px;
+	top: 67px;
 	font-size: 45px;
 	z-index: 9999;
 	color: rgba(21, 21, 21, 0.582);
@@ -22,5 +25,9 @@ export const BackButton = styled(BackButtonContainer)`
 		color: rgb(0, 0, 0);
 		transform: 0.15s;
 		transition: 0.15s;
+	}
+	@media (max-width: 600px) {
+		left: 65px;
+        top: 45px
 	}
 `;

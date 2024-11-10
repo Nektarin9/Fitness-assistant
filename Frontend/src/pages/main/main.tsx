@@ -1,5 +1,5 @@
 import { useEffect } from 'react';
-import { BackButton, Header } from '../../components';
+import { BackButton } from '../../components';
 import { NavLink, Outlet } from 'react-router-dom';
 import { useDispatch } from 'react-redux';
 import { clearClient } from '../../redux/client-slice';
@@ -30,9 +30,7 @@ const MainContainer = ({
 						<i className="fa fa-database fa-2x" aria-hidden="true"></i>
 					</NavLink>
 				</div>
-				<div className="backButton">
 					<BackButton />
-				</div>
 				<div className="rightConteiner">
 					<Outlet />
 				</div>
@@ -72,11 +70,6 @@ export const Main = styled(MainContainer)`
 	}
 	.addClitnt.active {
 		color: #83ee08;
-	}
-	.backButton {
-		position: absolute;
-		left: 115px;
-		top: 60px;
 	}
 	@media (max-width: 600px) {
 		.leftPanel {

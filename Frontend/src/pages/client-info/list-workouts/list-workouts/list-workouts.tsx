@@ -1,9 +1,9 @@
-import { Button, ExerciseChart } from '../../../components';
+import { Button, ExerciseChart, Loader } from '../../../../components';
 import { useDispatch, useSelector } from 'react-redux';
-import { selectClient } from '../../../redux/selectors';
+import { selectClient } from '../../../../redux/selectors';
 import { useParams } from 'react-router-dom';
 import { useEffect } from 'react';
-import { fetchClient, postTrainingTable } from '../../../redux/api/actions';
+import { fetchClient, postTrainingTable } from '../../../../redux/api/actions';
 import styled from 'styled-components';
 
 const ListWorkoutsContainer = ({ className }: { className?: string }) => {
@@ -14,7 +14,7 @@ const ListWorkoutsContainer = ({ className }: { className?: string }) => {
 		dispatch(fetchClient(params.id));
 	}, [dispatch, params.id]);
 	return (
-		<div className={className}>
+		client.id ? <div className={className}>
 			<div className="client-info">
 				<div>
 					<p>{client.name}</p>
@@ -39,11 +39,12 @@ const ListWorkoutsContainer = ({ className }: { className?: string }) => {
 					/>
 				))}
 			</div>
-		</div>
+		</div> : <Loader/>
 	);
 };
 
 export const ListWorkouts = styled(ListWorkoutsContainer)`
+	margin: auto;
 	font-size: 18px;
 	margin-bottom: 10px;
 	padding: 15px;
@@ -52,8 +53,10 @@ export const ListWorkouts = styled(ListWorkoutsContainer)`
 	background-color: #ffffff;
 
 	.client-info {
+		margin-top: 100px;
 		display: flex;
-		justify-content: space-between;
+		justify-content: space-around;
+		align-items: center;
 		flex-wrap: wrap-reverse;
 	}
 	img {
@@ -68,5 +71,11 @@ export const ListWorkouts = styled(ListWorkoutsContainer)`
 	}
 	.training-container {
 		margin-top: 30px;
+	}
+	@media (max-width: 600px) {
+		h2 {
+			margin: 10px auto;
+			font-size: 16px;
+		}
 	}
 `;

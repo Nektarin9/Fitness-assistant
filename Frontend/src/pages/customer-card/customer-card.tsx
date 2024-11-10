@@ -2,7 +2,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import { Link } from 'react-router-dom';
 import { selectClients } from '../../redux/selectors';
 import { useEffect } from 'react';
-import { Button } from '../../components';
+import { Button, Loader } from '../../components';
 import { deleteClient, fetchClients } from '../../redux/api/actions';
 import styled from 'styled-components';
 
@@ -16,7 +16,7 @@ const CustomerCardContainer = ({ className }: { className?: string }) => {
 		dispatch(deleteClient(id));
 	};
 	return (
-		<div className={className}>
+		clients.length ? <div className={className}>
 			{clients.map(({ id, name, phone, image }) => (
 				<div key={id}>
 					<Link to={`/client/${id}/exercise`} className="card">
@@ -41,7 +41,7 @@ const CustomerCardContainer = ({ className }: { className?: string }) => {
 					</div>
 				</div>
 			))}
-		</div>
+		</div>: <Loader/>
 	);
 };
 

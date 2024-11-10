@@ -6,6 +6,6 @@ module.exports = {
 		return jwt.sign(data, sign, { expiresIn: '30d' });
 	},
 	verify(token) {
-		return jwt.verify(token, sign)
-	}
+		return jwt.verify(token, sign);
+	},
 };

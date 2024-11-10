@@ -24,9 +24,8 @@ const AppConteiner = ({ className }: { className?: string }) => {
 	return (
 		<div className={className}>
 			{!isAuthenticated.error && <Header />}
-
-			{message && <Message>{message}</Message>}
-			<Routing isAuthenticated={isAuthenticated} />
+				{message && <Message>{message}</Message>}
+				<Routing isAuthenticated={isAuthenticated} />
 		</div>
 	);
 };
@@ -34,7 +33,6 @@ const AppConteiner = ({ className }: { className?: string }) => {
 export const App = styled(AppConteiner)`
 	display: block;
 	margin: 0;
-
 	@media (max-width: 600px) {
 		max-width: 580px;
 		& .test {
