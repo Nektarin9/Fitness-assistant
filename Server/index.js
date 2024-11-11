@@ -40,10 +40,9 @@ app.use(authenticated);
 app.use(express.static(path.join(__dirname, 'public'), { maxAge: "1d" }));
 
 // Маршрут для индексного HTML файла
-app.get('*', authenticated, (req, res) => {
+app.get('*', (req, res) => {
 	res.sendFile(path.join(__dirname, '../Frontend/dist', 'index.html'));
 });
-
 
 mongoose.connect(process.env.DB_CONNECTION_STRING).then(async () => {
 	app.listen(port, () => {
