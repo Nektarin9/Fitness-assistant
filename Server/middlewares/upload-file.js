@@ -4,11 +4,11 @@ const path = require('path');
 
 const storage = multer.diskStorage({
 	destination: function (req, file, cb) {
-		cb(null, 'uploads/'); // Укажите папку для сохранения загруженных файлов
+		cb(null, 'public/'); // Укажите папку для сохранения загруженных файлов
 	},
 	filename: function (req, file, cb) {
 		if (req.file) {
-			const imagePath = path.join(__dirname, '../uploads/', req.file.filename);
+			const imagePath = path.join(__dirname, '../public/', req.file.filename);
 			if (fs.existsSync(imagePath)) {
 				fs.unlinkSync(imagePath);
 			}

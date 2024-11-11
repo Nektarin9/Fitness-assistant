@@ -8,9 +8,9 @@ async function removeImage(params) {
 	const imageUrl = data.image;
 	const urlObj = new URL(imageUrl);
 	const fileUrl = urlObj.pathname;
-	const filePath = path.join(__dirname, '..');
+	const filePath = path.join(__dirname, '../public');
 
-	if (fileUrl !== '/uploads/default.jpg') {
+	if (fileUrl !== '/default.jpg') {
 		fs.unlink(`${filePath}${fileUrl}`, (err) => {
 			if (err) {
 				console.error('Ошибка при удалении файла:', err);

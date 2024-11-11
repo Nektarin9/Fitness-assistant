@@ -17,7 +17,7 @@ export const postTrainingTable: any = createAsyncThunk(
 					],
 				},
 			);
-			return response;
+			return response.data;
 		} catch (error) {
 			console.error(error);
 			throw error;

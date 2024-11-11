@@ -9,6 +9,7 @@ import { findClient } from '../../utils';
 import { useClearMessage } from '../../hooks';
 import { message } from '../../redux/app-slice';
 import styled from 'styled-components';
+import { IMG_URL } from '../../redux/api/patch';
 
 const AdditionContainer = ({ className }: { className?: string }) => {
 	// Создаем один объект состояния для всех полей
@@ -65,7 +66,7 @@ const AdditionContainer = ({ className }: { className?: string }) => {
 	}, []);
 	useEffect(() => {
 		const { image, name, phone, age } = client;
-		setPhotoUrl(image ? image : 'http://90.156.169.143:4000/uploads/default.jpg');
+		setPhotoUrl(image ? image : IMG_URL.DEFAULT_PHOTO);
 		setClientName(name ? name : '');
 		setClientPhone(phone ? phone : '');
 		setClientAge(age ? age : '');

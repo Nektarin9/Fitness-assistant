@@ -2,6 +2,7 @@ import { useRef } from 'react';
 import { Button } from '../../../components';
 import { Input } from '../../../components';
 import styled from 'styled-components';
+import { IMG_URL } from '../../../redux/api/patch';
 
 interface ClientFormContainerProps {
 	className?: string;
@@ -68,7 +69,7 @@ const ClientFormContainer = ({
 				<img className="img-uploaded" src={photoUrl} alt="Uploaded" />
 				<span
 					onClick={() => {
-						setPhotoUrl('http://90.156.169.143:4000/uploads/default.jpg');
+						setPhotoUrl(IMG_URL.DEFAULT_PHOTO);
 						setPhotoFile(null)
 						setDefaultImg('RESET');
 						if (fileInputRef.current) {

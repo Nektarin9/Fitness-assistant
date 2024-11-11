@@ -33,13 +33,12 @@ router.get('/:id', async (req, res) => {
 
 router.post('/', upload.single('imageFile'), async (req, res) => {
 	try {
-		const {defaultImg, name, phone, age, trainingProgram } = req.body;
-		let imageUrl = req.protocol + '://' + req.get('host') + '/uploads/';
-		if (defaultImg === "RESET" || defaultImg === "") {
+		const { defaultImg, name, phone, age, trainingProgram } = req.body;
+		let imageUrl = req.protocol + '://' + req.get('host') + '/';
+		if (defaultImg === 'RESET' || defaultImg === '') {
 			imageUrl = imageUrl + 'default.jpg';
 		} else {
 			imageUrl = imageUrl + req.file.filename;
-
 		}
 
 		const newClient = await postClient({
@@ -66,15 +65,22 @@ router.delete('/:id', async (req, res) => {
 
 router.patch('/', upload.single('imageFile'), async (req, res) => {
 	try {
-		const {defaultImg, name, phone, age, id } = req.body;
-
-		let imageUrl = req.protocol + '://' + req.get('host') + '/uploads/';
-		if (defaultImg !== "RESET") {
-			imageUrl = imageUrl + req.file.filename;
-		} else {
+		const { defaultImg, name, phone, age, id } = req.body;
+		let isNewImage = true;
+		let imageUrl = req.protocol + '://' + req.get('host') + '/';
+		if ((defaultImg !== 'RESET' && req.file) || defaultImg === '') {
+			if (req.file) {
+				imageUrl = imageUrl + req.file.filename;
+			} else {
+				isNewImage = false;
+			}
+		} else if (defaultImg === 'RESET') {
 			imageUrl = imageUrl + 'default.jpg';
+		} else {
+			isNewImage = false;
 		}
 		const client = await updateClient({
+			isNewImage,
 			image: imageUrl,
 			name,
 			phone,
@@ -83,6 +89,7 @@ router.patch('/', upload.single('imageFile'), async (req, res) => {
 		});
 		res.send(mapClients(client));
 	} catch (error) {
+		console.log(error);
 		res.send({ error });
 	}
 });
