@@ -1,0 +1,13 @@
+{
+	"name": "Фитнес тренер",
+	"short_name": "Фитнес тренер",
+	"start_url": "/",
+	"display": "standalone",
+	"icons": [
+		{
+			"src": "../phpuyicCw_pamyatka-ZOZH_html_b37f7caabba09b73.png",
+			"sizes": "192x192",
+			"type": "image/png"
+		}
+	]
+  }

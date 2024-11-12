@@ -11,8 +11,11 @@ const path = require('path');
 const port = 4000;
 const app = express();
 const authenticated = require('./middlewares/authenticated');
-const expressStaticGzip = require('express-static-gzip');
 
+app.get('/sw.js', (req, res) => {
+	res.setHeader('Content-Type', 'application/javascript');
+	res.sendFile(path.join(__dirname,'../Frontend/sw.js'));
+  });
 // мультер
 app.use(cookieParser());
 app.use(
@@ -20,6 +23,7 @@ app.use(
 		origin: 'http://localhost:8000',
 	}),
 );
+
 
 app.use(bodyParser.json());
 
