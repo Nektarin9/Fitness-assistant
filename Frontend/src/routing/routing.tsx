@@ -13,9 +13,13 @@ import { UserType } from '../redux/users-slice';
 export const Routing = ({ isAuthenticated }: { isAuthenticated: UserType }) => {
 	return (
 		<Routes>
-			<Route
+			{/*<Route
 				path="/"
 				element={!isAuthenticated.error ? <Main /> : <Authorization />}
+			>*/}
+			<Route
+				path="/"
+				element={ <Main />}
 			>
 				<Route index element={<CustomerCard />} />
 				<Route path="addClient" element={<Addition />} />

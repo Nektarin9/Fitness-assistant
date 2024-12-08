@@ -23,7 +23,7 @@ const AppConteiner = ({ className }: { className?: string }) => {
 	}, []);
 	return (
 		<div className={className}>
-			{!isAuthenticated.error && <Header />}
+			{/*!isAuthenticated.error &&*/ <Header />}
 				{message && <Message>{message}</Message>}
 				<Routing isAuthenticated={isAuthenticated} />
 		</div>
