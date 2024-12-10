@@ -37,8 +37,9 @@ app.get('/', (req, res) => {
 });
 
 app.use('/', routes);
+//В продакшене добавить авторизацию authenticated
 
-app.use(authenticated);
+//app.use(authenticated);
 
 // Второй вызов app.use для express.static с параметром maxAge
 app.use(express.static(path.join(__dirname, 'public'), { maxAge: "1d" }));
